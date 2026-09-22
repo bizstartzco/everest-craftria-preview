@@ -9,7 +9,7 @@
 <link rel="canonical" href="care-guide.html">
 <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.f1e14f9b.css">
+<link rel="stylesheet" href="assets/css/site.3c7ef92e.css">
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <meta name="theme-color" content="#f5f0e8">
@@ -22,7 +22,7 @@
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everestcraftria.com/"},{"@type":"ListItem","position":2,"name":"Pashmina Care Guide"}]}</script>
-<script src="assets/js/site.e1ff1047.js" defer></script>
+<script src="assets/js/site.b2f2d08c.js" defer></script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="1ffee7a58c31ab9dbe73ff84721936e70811777a79a4845194071a3d8790dae5">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -129,7 +129,7 @@
 <h2>Storing</h2>
 <ul><li>Fold rather than hang, so the piece doesn’t stretch.</li><li>Store clean, in a breathable cotton bag, somewhere cool and dry.</li><li>Cedar blocks or lavender help keep moths away.</li></ul>
 <h2>Pilling</h2>
-<p>A little pilling is normal with natural fibres. Remove it gently with a cashmere comb.</p>    <p class="small muted updated">Last updated 16 Sep 2026</p>
+<p>A little pilling is normal with natural fibres. Remove it gently with a cashmere comb.</p>    <p class="small muted updated">Last updated 22 Sep 2026</p>
   </div>
 </div>
 </main>
@@ -175,6 +175,40 @@
   </div>
 </footer>
 
+<div class="promo" id="promo" hidden data-promo data-delay="9" data-days="30">
+  <button class="promo-scrim" type="button" data-promo-close tabindex="-1"><span class="sr-only">Close</span></button>
+  <div class="promo-card" role="dialog" aria-modal="true" aria-labelledby="promo-h" aria-describedby="promo-b">
+    <button class="icon-btn promo-x" type="button" data-promo-close><span class="sr-only">Close this offer</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+
+    <div data-promo-step="form">
+      <p class="eyebrow">Welcome</p>
+      <h2 id="promo-h">Take 10% off your first order</h2>
+      <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
+      <form data-preview-form method="post" action="preview.html" data-promo-form>
+        <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
+        <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
+        <div class="field">
+          <label for="promo-email">Email address</label>
+          <input id="promo-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <label class="check promo-consent"><input type="checkbox" name="consent" value="1" required> <span>Email me new pieces, offers and care notes. I can unsubscribe at any time.</span></label>
+        <p class="promo-error" role="alert" hidden></p>
+        <button class="btn btn--block" type="submit">Send my code</button>
+        <p class="small muted promo-legal">One code per customer, for your first order. See our <a href="privacy.html">privacy notice</a>.</p>
+      </form>
+    </div>
+
+    <div data-promo-step="done" hidden>
+      <p class="eyebrow">Your code</p>
+      <h2>Thank you — here it is</h2>
+      <p class="promo-code"><code data-promo-code>WELCOME10</code>
+        <button class="btn btn--ghost btn--small" type="button" data-promo-copy>Copy</button></p>
+      <p class="muted">Enter it in your bag to take 10% off your first order. We’ve emailed it to you as well.</p>
+      <p><a class="btn btn--block" href="shop.html">Start shopping</a></p>
+    </div>
+  </div>
+</div>
 <div class="toast" role="status" aria-live="polite" data-toast></div>
 <script src="assets/js/preview.js"></script></body>
 </html>

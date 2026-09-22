@@ -445,6 +445,107 @@ fieldset.option legend span { font-weight: 400; letter-spacing: 0; text-transfor
   .od-grid { grid-template-columns: 1fr 1.2fr; }
 }
 
+/* --- Motion ---------------------------------------------------------------
+ * Everything below is an enhancement: with JavaScript off, or with reduced
+ * motion asked for, the page renders in its finished state. The `anim` class is
+ * set on <html> by site.js, so content is never left hidden waiting on a script.
+ */
+.anim [data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); }
+.anim [data-reveal].is-in {
+  opacity: 1; transform: none;
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Hero settles once on load: the eyebrow, headline, lede and buttons in order. */
+.anim .hero-copy > * { animation: rise .8s var(--ease) both; }
+.anim .hero-copy > :nth-child(1) { animation-delay: .05s; }
+.anim .hero-copy > :nth-child(2) { animation-delay: .14s; }
+.anim .hero-copy > :nth-child(3) { animation-delay: .24s; }
+.anim .hero-copy > :nth-child(4) { animation-delay: .34s; }
+.anim .hero-media img { animation: heroImage 1.4s var(--ease) both; }
+@keyframes rise { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+@keyframes heroImage { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+
+/* Header condenses after the first scroll. */
+.site-header { transition: box-shadow .3s var(--ease), background-color .3s var(--ease); }
+.site-header .header-row { transition: min-height .3s var(--ease); }
+.site-header.is-scrolled { box-shadow: 0 1px 18px rgba(31, 42, 48, .07); }
+.site-header.is-scrolled .header-row { min-height: 64px; }
+.site-header.is-scrolled .brand-sub { opacity: 0; }
+.brand-sub { transition: opacity .3s var(--ease); }
+
+/* Cards lift a little under the cursor; the image zoom already existed. */
+.card-media { transition: box-shadow .4s var(--ease); }
+.card:hover .card-media { box-shadow: 0 10px 30px rgba(31, 42, 48, .12); }
+.cat-tile .label { transition: transform .5s var(--ease); }
+.cat-tile:hover .label { transform: translateY(-4px); }
+
+/* Drawer and popup slide/scale in rather than appearing. */
+.anim .drawer:not([hidden]) .drawer-panel { animation: drawerIn .38s var(--ease) both; }
+.anim .drawer:not([hidden]) .drawer-scrim { animation: fade .38s var(--ease) both; }
+@keyframes drawerIn { from { transform: translate3d(-100%, 0, 0); } to { transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Accordion body eases open. */
+.anim .accordion details[open] .acc-body { animation: rise .45s var(--ease) both; }
+
+/* Add-to-bag confirms itself. */
+@keyframes pulse { 50% { transform: scale(.97); } }
+.anim .btn.is-busy { animation: pulse .4s var(--ease); }
+.count { transition: transform .3s var(--ease); }
+.count.is-bump { transform: scale(1.35); }
+
+/* --- Welcome-offer popup --------------------------------------------------- */
+.promo { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 20px; }
+.promo-scrim { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(27, 37, 43, .55); cursor: pointer; }
+.anim .promo:not([hidden]) .promo-scrim { animation: fade .3s var(--ease) both; }
+.promo-card {
+  position: relative; z-index: 1; width: min(440px, 100%); max-height: calc(100vh - 40px); overflow-y: auto;
+  background: var(--paper); border: 1px solid var(--line); padding: clamp(24px, 5vw, 38px);
+  box-shadow: 0 24px 60px rgba(27, 37, 43, .28);
+}
+.anim .promo:not([hidden]) .promo-card { animation: promoIn .42s var(--ease) both; }
+@keyframes promoIn { from { opacity: 0; transform: translate3d(0, 16px, 0) scale(.97); } to { opacity: 1; transform: none; } }
+.promo-card h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); }
+.promo-x { position: absolute; top: 8px; right: 8px; }
+.promo-card .field { margin-top: 18px; }
+.promo-consent { margin: 14px 0 18px; font-size: .86rem; align-items: flex-start; }
+.promo-error { margin: 0 0 12px; color: var(--bad); font-size: .88rem; }
+.promo-legal { margin-top: 12px; }
+.promo-code { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0 18px; }
+.promo-code code {
+  font: 700 1.25rem/1 var(--sans); letter-spacing: .16em; padding: 14px 18px;
+  background: var(--accent-soft); color: var(--accent-ink); border: 1px dashed var(--accent);
+}
+.btn--small { min-height: 40px; padding: 0 16px; }
+
+/* --- WhatsApp button ------------------------------------------------------- */
+.wa-btn {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 18px 12px 14px; border-radius: 999px;
+  background: #1f7a4d; color: #fff; text-decoration: none;
+  font: 600 .85rem/1 var(--sans); letter-spacing: .02em;
+  box-shadow: 0 8px 24px rgba(27, 37, 43, .22);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background-color .3s var(--ease);
+}
+.wa-btn:hover { background: #1a6b43; color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27, 37, 43, .28); }
+.wa-btn svg { width: 24px; height: 24px; flex: none; }
+.anim .wa-btn { animation: rise .6s var(--ease) .8s both; }
+@media (max-width: 559px) {
+  .wa-btn { padding: 14px; }
+  .wa-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .toast { max-width: calc(100vw - 110px); left: 16px; transform: none; }
+  .toast.is-on { transform: none; }
+}
+body.promo-open { overflow: hidden; }
+/* Chrome promotes a backdrop-filter element onto its own compositing layer,
+ * where it paints over a later fixed overlay whatever the z-index says. Drop
+ * the blur while a scrim is up, so the header dims with the rest of the page. */
+body.promo-open .site-header,
+body:has(.drawer:not([hidden])) .site-header { backdrop-filter: none; }
+
 /* --- Breakpoints ---------------------------------------------------------- */
 @media (min-width: 640px) {
   .promise + .promise { border-top: 0; border-left: 1px solid var(--line); }
@@ -491,6 +592,7 @@ fieldset.option legend span { font-weight: 400; letter-spacing: 0; text-transfor
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .anim [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
 @media print {
   .site-header, .site-footer, .announce, .demo-bar, .toast { display: none !important; }

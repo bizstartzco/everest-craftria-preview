@@ -1,0 +1,1440 @@
+<title>Handmade Nepali Pashmina Shawls, Stoles &amp; Scarves | Everest Craftria</title>
+<style>
+/* Everest Craftria — storefront stylesheet.
+ *
+ * One committed light theme. The fibre is the hero, so the frame stays quiet:
+ * undyed-wool ivory, Himalayan slate ink, one madder accent.
+ * Type: Instrument Serif (display) over Manrope (text). Both self-hosted, SIL OFL.
+ */
+
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("assets/fonts/manrope.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+
+:root {
+  --ground: #f5f0e8;
+  --ground-2: #ece4d7;
+  --card: #fbf8f3;
+  --paper: #fffdf9;
+  --ink: #1f2a30;
+  --ink-2: #46525a;
+  --muted: #5c6266;
+  --line: #ddd3c4;
+  --line-2: #cbbfad;
+  --accent: #9c3d2a;
+  --accent-ink: #7e2f20;
+  --accent-soft: #f1e1d9;
+  --slate: #1b252b;
+  --ok: #3d6a4b;
+  --warn: #85590e;
+  --bad: #a3372b;
+
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --wrap: 1320px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 2px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); }
+h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
+p { margin: 0 0 1em; }
+em.serif, .serif-i { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
+.narrow { max-width: 760px; margin-inline: auto; }
+.eyebrow { font: 600 .74rem/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+.lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-2); max-width: 60ch; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 100; }
+.skip:focus { top: 12px; }
+
+/* --- Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 0 28px; border: 1px solid var(--ink); border-radius: var(--radius);
+  background: var(--ink); color: #fff; text-decoration: none; cursor: pointer;
+  font: 600 .82rem/1.25 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-align: center; padding-block: 8px;
+  transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.btn--light { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.btn--light:hover { background: transparent; color: #fff; border-color: #fff; }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.link-arrow { display: inline-block; padding-top: 10px; font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 5px; white-space: nowrap; }
+
+/* --- Notices -------------------------------------------------------------- */
+.demo-bar { background: var(--warn); color: #fff; text-align: center; font-size: .82rem; padding: 7px var(--gutter); }
+.demo-bar strong { letter-spacing: .06em; }
+.announce { background: var(--slate); color: #e9e2d6; font-size: .8rem; letter-spacing: .04em; }
+.announce .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
+.announce p { margin: 0; }
+.announce form { display: flex; align-items: center; gap: 6px; }
+.announce select { background: transparent; border: 0; color: inherit; font-size: .8rem; padding: 4px; cursor: pointer; }
+.announce select option { color: var(--ink); }
+.flash { max-width: var(--wrap); margin: 18px auto 0; padding-inline: var(--gutter); }
+.flash p { margin: 0 0 8px; padding: 13px 16px; border-left: 3px solid var(--ink); background: var(--paper); font-size: .94rem; }
+.flash .success { border-color: var(--ok); }
+.flash .error { border-color: var(--bad); }
+.flash .info { border-color: var(--warn); }
+
+/* --- Header --------------------------------------------------------------- */
+.site-header { position: sticky; top: 0; z-index: 40; background: rgba(245, 240, 232, .94); backdrop-filter: saturate(1.2) blur(10px); border-bottom: 1px solid var(--line); }
+.header-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; gap: 16px; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--ink); line-height: 1; }
+.brand:hover { color: var(--ink); }
+.brand svg { width: 34px; height: auto; margin-bottom: 6px; color: var(--accent); }
+.brand-name { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.75rem); letter-spacing: .06em; white-space: nowrap; }
+.brand-sub { font-size: .58rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+.nav-primary { display: none; }
+.nav-primary ul { list-style: none; display: flex; gap: clamp(16px, 2vw, 30px); margin: 0; padding: 0; }
+.nav-primary a { white-space: nowrap; text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 8px 0; border-bottom: 1px solid transparent; }
+.nav-primary a:hover, .nav-primary a[aria-current="page"] { border-bottom-color: currentColor; color: var(--ink); }
+.header-tools { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+.icon-btn { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; background: none; border: 0; border-radius: 50%; color: var(--ink); cursor: pointer; text-decoration: none; }
+.icon-btn:hover { background: var(--ground-2); color: var(--ink); }
+.icon-btn svg { width: 21px; height: 21px; }
+.count { position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--accent); color: #fff; font-size: .66rem; font-weight: 700; line-height: 18px; text-align: center; }
+.menu-toggle { justify-self: start; }
+.hide-sm { display: none !important; }
+
+.search-panel { border-top: 1px solid var(--line); background: var(--paper); }
+.search-panel form { display: flex; gap: 10px; padding-block: 16px; }
+.search-panel input { flex: 1; min-height: 50px; border: 1px solid var(--line-2); background: #fff; padding: 0 16px; border-radius: var(--radius); }
+
+.drawer { position: fixed; inset: 0; z-index: 60; display: grid; grid-template-columns: min(86vw, 380px) 1fr; }
+.drawer-panel { background: var(--paper); padding: 20px 24px 32px; overflow-y: auto; box-shadow: 10px 0 40px rgba(0, 0, 0, .12); }
+.drawer-scrim { background: rgba(27, 37, 43, .45); border: 0; cursor: pointer; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.drawer ul { list-style: none; margin: 0; padding: 0; }
+.drawer li a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--serif); font-size: 1.55rem; }
+.drawer .drawer-secondary a { font-family: var(--sans); font-size: .95rem; padding: 11px 0; }
+
+/* --- Hero ----------------------------------------------------------------- */
+.hero { display: grid; background: var(--ground-2); overflow: hidden; }
+.hero-media { position: relative; aspect-ratio: 4 / 3.4; overflow: hidden; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-copy { padding: clamp(36px, 6vw, 88px) var(--gutter); padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); display: flex; flex-direction: column; justify-content: center; }
+.hero-copy h1 { max-width: 14ch; }
+.hero { background: #efe7db; }
+.hero-copy .lede { margin-bottom: 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+/* --- Sections ------------------------------------------------------------- */
+.section { padding-block: clamp(56px, 8vw, 112px); }
+.section--tight { padding-block: clamp(36px, 5vw, 64px); }
+.section--paper { background: var(--paper); }
+.section--slate { background: var(--slate); color: #eee7dc; }
+.section--slate .eyebrow { color: #e0a58f; }
+.section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 40px; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head h2 { margin: 0; max-width: 18ch; }
+
+/* --- Category tiles ------------------------------------------------------- */
+.cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(10px, 1.6vw, 22px); }
+.cat-tile { position: relative; display: block; text-decoration: none; color: #fff; overflow: hidden; background: var(--ground-2); }
+.cat-tile .media { aspect-ratio: 4 / 5; }
+.cat-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.cat-tile:hover img { transform: scale(1.04); }
+.cat-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(20, 26, 30, .78)); }
+.cat-tile .label { text-shadow: 0 1px 8px rgba(0, 0, 0, .35); }
+.cat-tile .label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: clamp(14px, 2vw, 24px); display: flex; justify-content: space-between; align-items: end; gap: 8px; }
+.cat-tile h3 { margin: 0; font-size: clamp(1.3rem, 2.4vw, 2rem); color: #fff; }
+.cat-tile .n { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; white-space: nowrap; }
+.cat-tile:hover { color: #fff; }
+
+/* --- Product grid --------------------------------------------------------- */
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 3vw, 44px) clamp(12px, 1.8vw, 26px); }
+.card { position: relative; }
+.card-media { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ground-2); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; transition: opacity .6s var(--ease), transform 1.2s var(--ease); }
+.card-media .alt-img { position: absolute; inset: 0; opacity: 0; }
+.card:hover .card-media .alt-img { opacity: 1; }
+.card:hover .card-media img:first-child { transform: scale(1.03); }
+.badge { position: absolute; left: 10px; top: 10px; z-index: 2; background: var(--paper); color: var(--ink); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 9px; }
+.badge--demo { top: auto; bottom: 10px; background: var(--warn); color: #fff; }
+.card-body { padding-top: 14px; }
+.card-cat { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.card-title { font-family: var(--serif); font-size: clamp(1.12rem, 1.6vw, 1.38rem); line-height: 1.2; margin: 0 0 6px; }
+.card-title a { text-decoration: none; }
+.card-title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.price { font-weight: 600; font-variant-numeric: tabular-nums; }
+.price-was { color: var(--muted); font-size: .9em; }
+.swatches { display: flex; gap: 5px; }
+.swatch-dot { width: 13px; height: 13px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .15); }
+.wish-btn { position: absolute; right: 8px; top: 8px; z-index: 3; }
+.card .wish-btn { background: rgba(255, 253, 249, .85); }
+.wish-btn[aria-pressed="true"] svg { fill: var(--accent); color: var(--accent); }
+
+/* --- Story / craft -------------------------------------------------------- */
+.craft { display: grid; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.craft-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 0; }
+.craft-steps li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 6px 18px; padding: 22px 0; border-top: 1px solid rgba(238, 231, 220, .18); }
+.craft-steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: #e0a58f; grid-row: span 2; }
+.craft-steps h3 { margin: 0; font-size: 1.4rem; color: #fff; }
+.craft-steps p { margin: 0; color: #c9c1b4; font-size: .95rem; }
+.craft-media { aspect-ratio: 4 / 5; overflow: hidden; }
+.craft-media img { width: 100%; height: 100%; object-fit: cover; }
+
+.promises { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-block: 1px solid var(--line); }
+.promise { padding: 26px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.promise + .promise { border-top: 1px solid var(--line); }
+.promise svg { flex: none; width: 26px; height: 26px; color: var(--accent); }
+.promise h3 { font-family: var(--sans); font-size: .92rem; font-weight: 700; margin: 0 0 3px; letter-spacing: 0; }
+.promise p { margin: 0; font-size: .88rem; color: var(--ink-2); }
+
+.post-grid { display: grid; gap: 32px; }
+.post-card a { text-decoration: none; }
+.post-card .media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--ground-2); margin-bottom: 16px; }
+.post-card .media img { width: 100%; height: 100%; object-fit: cover; }
+.post-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+
+.newsletter { text-align: center; }
+.newsletter form { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 520px; margin: 26px auto 0; }
+.newsletter input[type="email"] { flex: 1 1 220px; min-width: 0; min-height: 50px; padding: 0 16px; border: 1px solid var(--line-2); background: #fff; border-radius: var(--radius); }
+
+/* --- Page head + breadcrumbs --------------------------------------------- */
+.page-head { padding-block: clamp(28px, 4vw, 56px) clamp(22px, 3vw, 40px); border-bottom: 1px solid var(--line); }
+.page-head h1 { margin-bottom: 12px; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; font-size: .78rem; color: var(--muted); }
+.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--line-2); }
+.crumbs a { text-decoration: none; }
+
+/* --- Shop ----------------------------------------------------------------- */
+.shop-layout { display: grid; gap: 28px; padding-block: 28px 80px; }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; font-size: .88rem; }
+.toolbar select { min-height: 42px; border: 1px solid var(--line-2); background: var(--paper); padding: 0 12px; border-radius: var(--radius); }
+.filters { border: 1px solid var(--line); background: var(--paper); }
+.filters > summary { list-style: none; cursor: pointer; padding: 14px 18px; font-weight: 600; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; display: flex; justify-content: space-between; }
+.filters > summary::-webkit-details-marker { display: none; }
+.filters > div { padding: 0 18px 18px; }
+.filter-group { border-top: 1px solid var(--line); padding: 16px 0; }
+.filter-group h2 { font-family: var(--sans); font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 12px; }
+.filter-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.filter-group a { text-decoration: none; font-size: .92rem; display: flex; align-items: center; gap: 9px; }
+.filter-group a[aria-current="true"] { font-weight: 700; }
+.filter-group a[aria-current="true"]::after { content: "✓"; color: var(--accent); margin-left: auto; }
+.price-range { display: flex; gap: 8px; align-items: center; }
+.price-range input { width: 100%; min-height: 42px; border: 1px solid var(--line-2); background: #fff; padding: 0 10px; border-radius: var(--radius); }
+.check, .field label.check { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; font-weight: 400; min-height: 32px; margin: 0; }
+.check input { margin-top: 1px; }
+.check input, .radio-card input { width: 20px; height: 20px; flex: none; accent-color: var(--ink); }
+.active-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; border: 1px solid var(--line-2); border-radius: 999px; font-size: .8rem; text-decoration: none; background: var(--paper); }
+.empty { padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); }
+.pager { display: flex; justify-content: center; gap: 6px; margin-top: 56px; }
+.pager a, .pager span { min-width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); text-decoration: none; font-size: .9rem; }
+.pager [aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.cat-intro { max-width: 70ch; }
+.cat-body { border-top: 1px solid var(--line); padding-top: 40px; margin-top: 64px; }
+
+/* --- Product page --------------------------------------------------------- */
+.pdp { display: grid; gap: clamp(28px, 4vw, 72px); padding-block: 24px 72px; }
+.gallery-main { position: relative; aspect-ratio: 4 / 5; background: var(--ground-2); overflow: hidden; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 32px) / 5); gap: 8px; margin-top: 8px; overflow-x: auto; scrollbar-width: thin; }
+.gallery-thumbs button { padding: 0; border: 1px solid transparent; background: var(--ground-2); cursor: pointer; aspect-ratio: 4 / 5; overflow: hidden; }
+.gallery-thumbs button[aria-current="true"] { border-color: var(--ink); }
+.gallery-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.photo-note { font-size: .78rem; color: var(--muted); margin-top: 10px; }
+.buy { align-self: start; }
+@media (min-width: 900px) { .buy { position: sticky; top: 100px; } }
+.buy h1 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); margin-bottom: 8px; }
+.buy .subtitle { color: var(--ink-2); font-size: 1.05rem; margin-bottom: 18px; }
+.buy .price-line { display: flex; align-items: baseline; gap: 12px; font-size: 1.35rem; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.fx-note { font-size: .76rem; color: var(--muted); font-weight: 400; }
+fieldset.option { border: 0; margin: 0 0 20px; padding: 0; }
+fieldset.option legend { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; padding: 0; }
+fieldset.option legend span { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-2); margin-left: 6px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt span { display: inline-grid; place-items: center; min-width: 48px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line-2); background: var(--paper); cursor: pointer; font-size: .9rem; }
+.opt--swatch span { width: 44px; min-width: 44px; padding: 0; border-radius: 50%; border: 3px solid var(--paper); box-shadow: 0 0 0 1px var(--line-2); }
+.opt input:checked + span { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.opt--swatch input:checked + span { border-color: var(--paper); box-shadow: 0 0 0 2px var(--ink); }
+.opt input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.opt.is-unavailable span { opacity: .4; text-decoration: line-through; }
+.stock { display: flex; align-items: center; gap: 8px; font-size: .9rem; margin: 4px 0 18px; }
+.stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.stock[data-state="low"]::before { background: var(--warn); }
+.stock[data-state="mto"]::before { background: var(--accent); }
+.stock[data-state="out"]::before { background: var(--muted); }
+.buy-row { display: grid; grid-template-columns: 110px 1fr 50px; gap: 10px; }
+.qty { display: grid; grid-template-columns: 34px 1fr 34px; border: 1px solid var(--line-2); background: var(--paper); height: 50px; }
+.qty button { border: 0; background: none; cursor: pointer; font-size: 1.1rem; }
+.qty input { width: 100%; border: 0; background: none; text-align: center; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.buy-row .wish-btn { position: static; width: 50px; height: 50px; border: 1px solid var(--line-2); border-radius: var(--radius); }
+.buy-meta { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; font-size: .88rem; color: var(--ink-2); }
+.buy-meta li { display: flex; gap: 10px; align-items: flex-start; }
+.buy-meta svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--accent); }
+.accordion { margin-top: 30px; border-top: 1px solid var(--line); }
+.accordion details { border-bottom: 1px solid var(--line); }
+.accordion summary { list-style: none; cursor: pointer; padding: 18px 0; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; display: flex; justify-content: space-between; }
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after { content: "+"; font-size: 1.2rem; font-weight: 400; line-height: 1; }
+.accordion details[open] summary::after { content: "−"; }
+.accordion .acc-body { padding-bottom: 20px; font-size: .95rem; color: var(--ink-2); }
+.spec { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.spec th { text-align: left; font-weight: 600; color: var(--ink); width: 38%; padding: 8px 12px 8px 0; vertical-align: top; }
+.spec td { padding: 8px 0; }
+.spec tr + tr { border-top: 1px solid var(--line); }
+.tbc { color: var(--warn); font-style: italic; }
+
+.reviews { border-top: 1px solid var(--line); padding-block: 56px; }
+.review { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.stars { color: var(--accent); letter-spacing: 2px; }
+.verified { font-size: .74rem; color: var(--ok); font-weight: 600; margin-left: 8px; }
+
+/* --- Forms ---------------------------------------------------------------- */
+.form-grid { display: grid; gap: 16px; }
+.field label, .field .label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: 6px; }
+.field input:not([type="checkbox"]):not([type="radio"]), .field select, .field textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--line-2); background: #fff; border-radius: var(--radius);
+}
+.field textarea { min-height: 130px; resize: vertical; }
+.field .hint { font-size: .8rem; color: var(--muted); margin-top: 5px; }
+.field .err { font-size: .82rem; color: var(--bad); margin-top: 5px; }
+.field.has-err input, .field.has-err select { border-color: var(--bad); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.panel { background: var(--paper); border: 1px solid var(--line); padding: clamp(20px, 3vw, 36px); }
+.auth { max-width: 460px; margin: 48px auto 96px; }
+.auth h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+
+/* --- Cart + checkout ------------------------------------------------------ */
+.cart-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 28px 96px; align-items: start; }
+.cart-layout > *, .shop-layout > *, .pdp > *, .split > * { min-width: 0; }
+.cart-line { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.cart-line > div { min-width: 0; }
+.cart-line .line-actions { flex-wrap: wrap; }
+.cart-line .thumb { aspect-ratio: 4 / 5; background: var(--ground-2); overflow: hidden; }
+.cart-line .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.cart-line h2 { font-size: 1.3rem; margin: 0 0 4px; }
+.cart-line h2 a { text-decoration: none; }
+.cart-line .line-actions { display: flex; gap: 14px; align-items: center; margin-top: 10px; }
+.cart-line .qty { height: 42px; width: 110px; }
+.text-btn { background: none; border: 0; padding: 8px 0; min-height: 32px; cursor: pointer; font-size: .82rem; text-decoration: underline; text-underline-offset: 3px; color: var(--ink-2); }
+.summary { background: var(--paper); border: 1px solid var(--line); padding: 26px; }
+.summary h2 { font-size: 1.7rem; }
+.sum-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: .94rem; }
+.sum-row.total { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 16px; font-size: 1.15rem; font-weight: 700; }
+.coupon-form { display: flex; gap: 8px; margin: 14px 0; }
+.coupon-form input { flex: 1; min-width: 0; min-height: 44px; border: 1px solid var(--line-2); padding: 0 12px; background: #fff; border-radius: var(--radius); text-transform: uppercase; }
+.coupon-form .btn { min-height: 44px; padding: 0 16px; }
+.rate-list, .pay-list { display: grid; gap: 8px; }
+.radio-card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid var(--line-2); background: #fff; cursor: pointer; }
+.radio-card:has(input:checked) { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.radio-card input { margin-top: 4px; accent-color: var(--ink); }
+.radio-card .rc-main { flex: 1; }
+.radio-card .rc-price { font-weight: 600; }
+.test-tag { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: #fbeed3; color: #74500d; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; vertical-align: 1px; }
+.checkout-steps h2 { font-size: 1.6rem; margin: 34px 0 16px; }
+.checkout-steps h2:first-child { margin-top: 0; }
+.notice { padding: 14px 16px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: .92rem; margin: 16px 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { position: relative; padding: 0 0 22px 26px; border-left: 1px solid var(--line-2); margin-left: 6px; }
+.timeline li::before { content: ""; position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--ink); }
+.timeline li:last-child { border-left-color: transparent; }
+.status-pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--ground-2); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
+.status-pill[data-s="processing"], .status-pill[data-s="shipped"] { background: #e3ecdf; color: #2f5a3b; }
+.status-pill[data-s="delivered"] { background: #d9e6d4; color: #24472e; }
+.status-pill[data-s="cancelled"], .status-pill[data-s="refunded"] { background: #f1dcd6; color: #7e2f20; }
+.table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.table th { text-align: left; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 10px 8px; border-bottom: 1px solid var(--line-2); }
+.table td { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.scroll-x { overflow-x: auto; }
+.account-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 30px; font-size: .9rem; }
+.account-nav a[aria-current="page"] { font-weight: 700; }
+
+/* --- Prose ---------------------------------------------------------------- */
+.prose { font-size: 1.04rem; color: var(--ink-2); }
+.prose h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--ink); margin-top: 1.6em; }
+.prose h3 { font-size: 1.35rem; color: var(--ink); margin-top: 1.4em; }
+.prose a { color: var(--accent-ink); }
+.prose ul, .prose ol { padding-left: 1.2em; }
+.prose li { margin-bottom: .4em; }
+.review-flag { font-size: .82rem; padding: 10px 14px; background: #fbeed3; border-left: 3px solid var(--warn); margin-bottom: 26px; }
+
+/* --- Footer --------------------------------------------------------------- */
+.site-footer { background: var(--slate); color: #cfc7ba; padding-block: 64px 28px; font-size: .9rem; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+.footer-grid { display: grid; gap: 36px; grid-template-columns: repeat(2, 1fr); }
+.footer-brand { grid-column: 1 / -1; }
+.footer-brand .brand-name { color: #fff; font-size: 1.9rem; }
+.footer-brand p { max-width: 38ch; margin-top: 14px; }
+.site-footer h2 { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin: 0 0 14px; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.site-footer li a { display: inline-block; padding-block: 6px; }
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 48px; padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .78rem; color: #9d968b; }
+.pay-marks { display: flex; gap: 8px; align-items: center; }
+.pay-marks span { border: 1px solid rgba(255, 255, 255, .2); padding: 3px 8px; font-size: .7rem; letter-spacing: .06em; }
+
+/* --- Toast ---------------------------------------------------------------- */
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 20px); z-index: 80; background: var(--ink); color: #fff; padding: 14px 20px; font-size: .92rem; opacity: 0; pointer-events: none; transition: opacity .3s var(--ease), transform .3s var(--ease); max-width: calc(100vw - 32px); display: flex; gap: 16px; align-items: center; }
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast a { color: #fff; font-weight: 700; white-space: nowrap; }
+
+/* --- Coming soon ---------------------------------------------------------- */
+.soon { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 40px var(--gutter); background: var(--ground-2); }
+.soon .brand svg { width: 52px; }
+.soon .brand-name { font-size: clamp(2.2rem, 6vw, 4rem); }
+
+/* --- Utilities used by templates ------------------------------------------ */
+.page-body { padding-block: 32px 96px; }
+.page-body-top { margin-block: 32px 96px; }
+.stack { display: grid; gap: 32px; max-width: 980px; }
+.flat { border-bottom: 0; }
+.centered { text-align: center; }
+.centered .crumbs ol { justify-content: center; }
+.centered-text { text-align: center; }
+.centered-block { margin-inline: auto; }
+.flush { margin: 0; }
+.upper { text-transform: uppercase; }
+.h-md { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.h-sm { font-size: 1.6rem; }
+.h-xs { font-size: 1.3rem; }
+.row-between { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.inline-search { display: flex; gap: 10px; max-width: 560px; margin-top: 8px; }
+.inline-search input { flex: 1; min-width: 0; min-height: 50px; border: 1px solid var(--line-2); padding: 0 14px; background: #fff; border-radius: var(--radius); }
+.post-hero { margin: 0 auto 48px; max-width: 1080px; }
+.split { display: grid; gap: 40px; }
+.form-note { margin-top: 10px; }
+.od-grid { display: grid; gap: 32px; margin-top: 22px; }
+.cart-foot { margin-top: 22px; }
+.ship-estimate { margin: 14px 0 6px; }
+.ship-estimate label { display: block; margin-bottom: 6px; }
+.ship-estimate select { width: 100%; min-height: 44px; border: 1px solid var(--line-2); background: #fff; padding: 0 10px; border-radius: var(--radius); }
+.summary .centered-text svg, .centered-text svg { display: inline-block; width: 14px; height: 14px; vertical-align: -2px; }
+.terms-field { margin-top: 26px; }
+.check-field { align-self: end; padding-bottom: 12px; }
+.pay-again { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 10px; }
+.save-account { margin-top: 24px; }
+.auth-alt { margin-top: 20px; }
+.inline-form { display: inline; }
+.account-details { margin-top: 56px; }
+.soon-copy { margin-top: 26px; }
+.soon .brand { display: inline-flex; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1.4fr 1fr; gap: 64px; }
+  .od-grid { grid-template-columns: 1fr 1.2fr; }
+}
+
+/* --- Motion ---------------------------------------------------------------
+ * Everything below is an enhancement: with JavaScript off, or with reduced
+ * motion asked for, the page renders in its finished state. The `anim` class is
+ * set on <html> by site.js, so content is never left hidden waiting on a script.
+ */
+.anim [data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); }
+.anim [data-reveal].is-in {
+  opacity: 1; transform: none;
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Hero settles once on load: the eyebrow, headline, lede and buttons in order. */
+.anim .hero-copy > * { animation: rise .8s var(--ease) both; }
+.anim .hero-copy > :nth-child(1) { animation-delay: .05s; }
+.anim .hero-copy > :nth-child(2) { animation-delay: .14s; }
+.anim .hero-copy > :nth-child(3) { animation-delay: .24s; }
+.anim .hero-copy > :nth-child(4) { animation-delay: .34s; }
+.anim .hero-media img { animation: heroImage 1.4s var(--ease) both; }
+@keyframes rise { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+@keyframes heroImage { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+
+/* Header condenses after the first scroll. */
+.site-header { transition: box-shadow .3s var(--ease), background-color .3s var(--ease); }
+.site-header .header-row { transition: min-height .3s var(--ease); }
+.site-header.is-scrolled { box-shadow: 0 1px 18px rgba(31, 42, 48, .07); }
+.site-header.is-scrolled .header-row { min-height: 64px; }
+.site-header.is-scrolled .brand-sub { opacity: 0; }
+.brand-sub { transition: opacity .3s var(--ease); }
+
+/* Cards lift a little under the cursor; the image zoom already existed. */
+.card-media { transition: box-shadow .4s var(--ease); }
+.card:hover .card-media { box-shadow: 0 10px 30px rgba(31, 42, 48, .12); }
+.cat-tile .label { transition: transform .5s var(--ease); }
+.cat-tile:hover .label { transform: translateY(-4px); }
+
+/* Drawer and popup slide/scale in rather than appearing. */
+.anim .drawer:not([hidden]) .drawer-panel { animation: drawerIn .38s var(--ease) both; }
+.anim .drawer:not([hidden]) .drawer-scrim { animation: fade .38s var(--ease) both; }
+@keyframes drawerIn { from { transform: translate3d(-100%, 0, 0); } to { transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Accordion body eases open. */
+.anim .accordion details[open] .acc-body { animation: rise .45s var(--ease) both; }
+
+/* Add-to-bag confirms itself. */
+@keyframes pulse { 50% { transform: scale(.97); } }
+.anim .btn.is-busy { animation: pulse .4s var(--ease); }
+.count { transition: transform .3s var(--ease); }
+.count.is-bump { transform: scale(1.35); }
+
+/* --- Welcome-offer popup --------------------------------------------------- */
+.promo { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 20px; }
+.promo-scrim { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(27, 37, 43, .55); cursor: pointer; }
+.anim .promo:not([hidden]) .promo-scrim { animation: fade .3s var(--ease) both; }
+.promo-card {
+  position: relative; z-index: 1; width: min(440px, 100%); max-height: calc(100vh - 40px); overflow-y: auto;
+  background: var(--paper); border: 1px solid var(--line); padding: clamp(24px, 5vw, 38px);
+  box-shadow: 0 24px 60px rgba(27, 37, 43, .28);
+}
+.anim .promo:not([hidden]) .promo-card { animation: promoIn .42s var(--ease) both; }
+@keyframes promoIn { from { opacity: 0; transform: translate3d(0, 16px, 0) scale(.97); } to { opacity: 1; transform: none; } }
+.promo-card h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); }
+.promo-x { position: absolute; top: 8px; right: 8px; }
+.promo-card .field { margin-top: 18px; }
+.promo-consent { margin: 14px 0 18px; font-size: .86rem; align-items: flex-start; }
+.promo-error { margin: 0 0 12px; color: var(--bad); font-size: .88rem; }
+.promo-legal { margin-top: 12px; }
+.promo-code { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0 18px; }
+.promo-code code {
+  font: 700 1.25rem/1 var(--sans); letter-spacing: .16em; padding: 14px 18px;
+  background: var(--accent-soft); color: var(--accent-ink); border: 1px dashed var(--accent);
+}
+.btn--small { min-height: 40px; padding: 0 16px; }
+
+/* --- WhatsApp button ------------------------------------------------------- */
+.wa-btn {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 18px 12px 14px; border-radius: 999px;
+  background: #1f7a4d; color: #fff; text-decoration: none;
+  font: 600 .85rem/1 var(--sans); letter-spacing: .02em;
+  box-shadow: 0 8px 24px rgba(27, 37, 43, .22);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background-color .3s var(--ease);
+}
+.wa-btn:hover { background: #1a6b43; color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27, 37, 43, .28); }
+.wa-btn svg { width: 24px; height: 24px; flex: none; }
+.anim .wa-btn { animation: rise .6s var(--ease) .8s both; }
+@media (max-width: 559px) {
+  .wa-btn { padding: 14px; }
+  .wa-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .toast { max-width: calc(100vw - 110px); left: 16px; transform: none; }
+  .toast.is-on { transform: none; }
+}
+body.promo-open { overflow: hidden; }
+/* Chrome promotes a backdrop-filter element onto its own compositing layer,
+ * where it paints over a later fixed overlay whatever the z-index says. Drop
+ * the blur while a scrim is up, so the header dims with the rest of the page. */
+body.promo-open .site-header,
+body:has(.drawer:not([hidden])) .site-header { backdrop-filter: none; }
+
+/* --- Breakpoints ---------------------------------------------------------- */
+@media (min-width: 640px) {
+  .promise + .promise { border-top: 0; border-left: 1px solid var(--line); }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+  .form-grid.two { grid-template-columns: 1fr 1fr; }
+  .form-grid .span-2 { grid-column: 1 / -1; }
+  .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-brand { grid-column: auto; }
+}
+@media (max-width: 639px) {
+  .promises { grid-template-columns: 1fr; }
+  .announce .announce-msg { font-size: .74rem; }
+}
+@media (min-width: 900px) {
+  .hide-sm { display: inline-grid !important; }
+  .menu-toggle { display: none; }
+  .nav-primary { display: block; }
+  .header-row { min-height: 88px; }
+  .hero { grid-template-columns: 1.05fr 1fr; min-height: min(78vh, 760px); }
+  .hero-media { aspect-ratio: auto; order: 2; }
+  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+  .product-grid { grid-template-columns: repeat(4, 1fr); }
+  .product-grid.three { grid-template-columns: repeat(3, 1fr); }
+  .craft { grid-template-columns: 1fr 1.1fr; }
+  .shop-layout { grid-template-columns: 260px 1fr; gap: 48px; }
+  .filters > summary { pointer-events: none; }
+  .filters > summary .toggle-hint { display: none; }
+  .pdp { grid-template-columns: 1.15fr 1fr; }
+  .cart-layout { grid-template-columns: 1fr 400px; gap: 56px; }
+  .cart-layout.checkout { grid-template-columns: 1fr 420px; }
+  .summary { position: sticky; top: 108px; }
+}
+@media (max-width: 479px) {
+  .cart-line { grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+  .cart-line > .price { grid-column: 2; margin: -4px 0 0; }
+  .brand-sub { letter-spacing: .14em; font-size: .5rem; white-space: nowrap; }
+  .demo-bar { font-size: .74rem; }
+}
+@media (max-width: 379px) {
+  .header-row { gap: 6px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .brand-name { font-size: 1.2rem; }
+  .brand-sub { letter-spacing: .1em; font-size: .46rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .anim [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+@media print {
+  .site-header, .site-footer, .announce, .demo-bar, .toast { display: none !important; }
+}
+/* Everest Craftria — storefront stylesheet.
+ *
+ * One committed light theme. The fibre is the hero, so the frame stays quiet:
+ * undyed-wool ivory, Himalayan slate ink, one madder accent.
+ * Type: Instrument Serif (display) over Manrope (text). Both self-hosted, SIL OFL.
+ */
+
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("assets/fonts/manrope.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+
+:root {
+  --ground: #f5f0e8;
+  --ground-2: #ece4d7;
+  --card: #fbf8f3;
+  --paper: #fffdf9;
+  --ink: #1f2a30;
+  --ink-2: #46525a;
+  --muted: #5c6266;
+  --line: #ddd3c4;
+  --line-2: #cbbfad;
+  --accent: #9c3d2a;
+  --accent-ink: #7e2f20;
+  --accent-soft: #f1e1d9;
+  --slate: #1b252b;
+  --ok: #3d6a4b;
+  --warn: #85590e;
+  --bad: #a3372b;
+
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --wrap: 1320px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 2px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); }
+h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
+p { margin: 0 0 1em; }
+em.serif, .serif-i { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
+.narrow { max-width: 760px; margin-inline: auto; }
+.eyebrow { font: 600 .74rem/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+.lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-2); max-width: 60ch; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 100; }
+.skip:focus { top: 12px; }
+
+/* --- Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 0 28px; border: 1px solid var(--ink); border-radius: var(--radius);
+  background: var(--ink); color: #fff; text-decoration: none; cursor: pointer;
+  font: 600 .82rem/1.25 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-align: center; padding-block: 8px;
+  transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.btn--light { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.btn--light:hover { background: transparent; color: #fff; border-color: #fff; }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.link-arrow { display: inline-block; padding-top: 10px; font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 5px; white-space: nowrap; }
+
+/* --- Notices -------------------------------------------------------------- */
+.demo-bar { background: var(--warn); color: #fff; text-align: center; font-size: .82rem; padding: 7px var(--gutter); }
+.demo-bar strong { letter-spacing: .06em; }
+.announce { background: var(--slate); color: #e9e2d6; font-size: .8rem; letter-spacing: .04em; }
+.announce .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
+.announce p { margin: 0; }
+.announce form { display: flex; align-items: center; gap: 6px; }
+.announce select { background: transparent; border: 0; color: inherit; font-size: .8rem; padding: 4px; cursor: pointer; }
+.announce select option { color: var(--ink); }
+.flash { max-width: var(--wrap); margin: 18px auto 0; padding-inline: var(--gutter); }
+.flash p { margin: 0 0 8px; padding: 13px 16px; border-left: 3px solid var(--ink); background: var(--paper); font-size: .94rem; }
+.flash .success { border-color: var(--ok); }
+.flash .error { border-color: var(--bad); }
+.flash .info { border-color: var(--warn); }
+
+/* --- Header --------------------------------------------------------------- */
+.site-header { position: sticky; top: 0; z-index: 40; background: rgba(245, 240, 232, .94); backdrop-filter: saturate(1.2) blur(10px); border-bottom: 1px solid var(--line); }
+.header-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; gap: 16px; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--ink); line-height: 1; }
+.brand:hover { color: var(--ink); }
+.brand svg { width: 34px; height: auto; margin-bottom: 6px; color: var(--accent); }
+.brand-name { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.75rem); letter-spacing: .06em; white-space: nowrap; }
+.brand-sub { font-size: .58rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+.nav-primary { display: none; }
+.nav-primary ul { list-style: none; display: flex; gap: clamp(16px, 2vw, 30px); margin: 0; padding: 0; }
+.nav-primary a { white-space: nowrap; text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 8px 0; border-bottom: 1px solid transparent; }
+.nav-primary a:hover, .nav-primary a[aria-current="page"] { border-bottom-color: currentColor; color: var(--ink); }
+.header-tools { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+.icon-btn { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; background: none; border: 0; border-radius: 50%; color: var(--ink); cursor: pointer; text-decoration: none; }
+.icon-btn:hover { background: var(--ground-2); color: var(--ink); }
+.icon-btn svg { width: 21px; height: 21px; }
+.count { position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--accent); color: #fff; font-size: .66rem; font-weight: 700; line-height: 18px; text-align: center; }
+.menu-toggle { justify-self: start; }
+.hide-sm { display: none !important; }
+
+.search-panel { border-top: 1px solid var(--line); background: var(--paper); }
+.search-panel form { display: flex; gap: 10px; padding-block: 16px; }
+.search-panel input { flex: 1; min-height: 50px; border: 1px solid var(--line-2); background: #fff; padding: 0 16px; border-radius: var(--radius); }
+
+.drawer { position: fixed; inset: 0; z-index: 60; display: grid; grid-template-columns: min(86vw, 380px) 1fr; }
+.drawer-panel { background: var(--paper); padding: 20px 24px 32px; overflow-y: auto; box-shadow: 10px 0 40px rgba(0, 0, 0, .12); }
+.drawer-scrim { background: rgba(27, 37, 43, .45); border: 0; cursor: pointer; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.drawer ul { list-style: none; margin: 0; padding: 0; }
+.drawer li a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--serif); font-size: 1.55rem; }
+.drawer .drawer-secondary a { font-family: var(--sans); font-size: .95rem; padding: 11px 0; }
+
+/* --- Hero ----------------------------------------------------------------- */
+.hero { display: grid; background: var(--ground-2); overflow: hidden; }
+.hero-media { position: relative; aspect-ratio: 4 / 3.4; overflow: hidden; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-copy { padding: clamp(36px, 6vw, 88px) var(--gutter); padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); display: flex; flex-direction: column; justify-content: center; }
+.hero-copy h1 { max-width: 14ch; }
+.hero { background: #efe7db; }
+.hero-copy .lede { margin-bottom: 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+/* --- Sections ------------------------------------------------------------- */
+.section { padding-block: clamp(56px, 8vw, 112px); }
+.section--tight { padding-block: clamp(36px, 5vw, 64px); }
+.section--paper { background: var(--paper); }
+.section--slate { background: var(--slate); color: #eee7dc; }
+.section--slate .eyebrow { color: #e0a58f; }
+.section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 40px; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head h2 { margin: 0; max-width: 18ch; }
+
+/* --- Category tiles ------------------------------------------------------- */
+.cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(10px, 1.6vw, 22px); }
+.cat-tile { position: relative; display: block; text-decoration: none; color: #fff; overflow: hidden; background: var(--ground-2); }
+.cat-tile .media { aspect-ratio: 4 / 5; }
+.cat-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.cat-tile:hover img { transform: scale(1.04); }
+.cat-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(20, 26, 30, .78)); }
+.cat-tile .label { text-shadow: 0 1px 8px rgba(0, 0, 0, .35); }
+.cat-tile .label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: clamp(14px, 2vw, 24px); display: flex; justify-content: space-between; align-items: end; gap: 8px; }
+.cat-tile h3 { margin: 0; font-size: clamp(1.3rem, 2.4vw, 2rem); color: #fff; }
+.cat-tile .n { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; white-space: nowrap; }
+.cat-tile:hover { color: #fff; }
+
+/* --- Product grid --------------------------------------------------------- */
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 3vw, 44px) clamp(12px, 1.8vw, 26px); }
+.card { position: relative; }
+.card-media { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ground-2); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; transition: opacity .6s var(--ease), transform 1.2s var(--ease); }
+.card-media .alt-img { position: absolute; inset: 0; opacity: 0; }
+.card:hover .card-media .alt-img { opacity: 1; }
+.card:hover .card-media img:first-child { transform: scale(1.03); }
+.badge { position: absolute; left: 10px; top: 10px; z-index: 2; background: var(--paper); color: var(--ink); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 9px; }
+.badge--demo { top: auto; bottom: 10px; background: var(--warn); color: #fff; }
+.card-body { padding-top: 14px; }
+.card-cat { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.card-title { font-family: var(--serif); font-size: clamp(1.12rem, 1.6vw, 1.38rem); line-height: 1.2; margin: 0 0 6px; }
+.card-title a { text-decoration: none; }
+.card-title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.price { font-weight: 600; font-variant-numeric: tabular-nums; }
+.price-was { color: var(--muted); font-size: .9em; }
+.swatches { display: flex; gap: 5px; }
+.swatch-dot { width: 13px; height: 13px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .15); }
+.wish-btn { position: absolute; right: 8px; top: 8px; z-index: 3; }
+.card .wish-btn { background: rgba(255, 253, 249, .85); }
+.wish-btn[aria-pressed="true"] svg { fill: var(--accent); color: var(--accent); }
+
+/* --- Story / craft -------------------------------------------------------- */
+.craft { display: grid; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.craft-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 0; }
+.craft-steps li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 6px 18px; padding: 22px 0; border-top: 1px solid rgba(238, 231, 220, .18); }
+.craft-steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: #e0a58f; grid-row: span 2; }
+.craft-steps h3 { margin: 0; font-size: 1.4rem; color: #fff; }
+.craft-steps p { margin: 0; color: #c9c1b4; font-size: .95rem; }
+.craft-media { aspect-ratio: 4 / 5; overflow: hidden; }
+.craft-media img { width: 100%; height: 100%; object-fit: cover; }
+
+.promises { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-block: 1px solid var(--line); }
+.promise { padding: 26px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.promise + .promise { border-top: 1px solid var(--line); }
+.promise svg { flex: none; width: 26px; height: 26px; color: var(--accent); }
+.promise h3 { font-family: var(--sans); font-size: .92rem; font-weight: 700; margin: 0 0 3px; letter-spacing: 0; }
+.promise p { margin: 0; font-size: .88rem; color: var(--ink-2); }
+
+.post-grid { display: grid; gap: 32px; }
+.post-card a { text-decoration: none; }
+.post-card .media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--ground-2); margin-bottom: 16px; }
+.post-card .media img { width: 100%; height: 100%; object-fit: cover; }
+.post-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+
+.newsletter { text-align: center; }
+.newsletter form { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 520px; margin: 26px auto 0; }
+.newsletter input[type="email"] { flex: 1 1 220px; min-width: 0; min-height: 50px; padding: 0 16px; border: 1px solid var(--line-2); background: #fff; border-radius: var(--radius); }
+
+/* --- Page head + breadcrumbs --------------------------------------------- */
+.page-head { padding-block: clamp(28px, 4vw, 56px) clamp(22px, 3vw, 40px); border-bottom: 1px solid var(--line); }
+.page-head h1 { margin-bottom: 12px; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; font-size: .78rem; color: var(--muted); }
+.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--line-2); }
+.crumbs a { text-decoration: none; }
+
+/* --- Shop ----------------------------------------------------------------- */
+.shop-layout { display: grid; gap: 28px; padding-block: 28px 80px; }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; font-size: .88rem; }
+.toolbar select { min-height: 42px; border: 1px solid var(--line-2); background: var(--paper); padding: 0 12px; border-radius: var(--radius); }
+.filters { border: 1px solid var(--line); background: var(--paper); }
+.filters > summary { list-style: none; cursor: pointer; padding: 14px 18px; font-weight: 600; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; display: flex; justify-content: space-between; }
+.filters > summary::-webkit-details-marker { display: none; }
+.filters > div { padding: 0 18px 18px; }
+.filter-group { border-top: 1px solid var(--line); padding: 16px 0; }
+.filter-group h2 { font-family: var(--sans); font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 12px; }
+.filter-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.filter-group a { text-decoration: none; font-size: .92rem; display: flex; align-items: center; gap: 9px; }
+.filter-group a[aria-current="true"] { font-weight: 700; }
+.filter-group a[aria-current="true"]::after { content: "✓"; color: var(--accent); margin-left: auto; }
+.price-range { display: flex; gap: 8px; align-items: center; }
+.price-range input { width: 100%; min-height: 42px; border: 1px solid var(--line-2); background: #fff; padding: 0 10px; border-radius: var(--radius); }
+.check, .field label.check { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; font-weight: 400; min-height: 32px; margin: 0; }
+.check input { margin-top: 1px; }
+.check input, .radio-card input { width: 20px; height: 20px; flex: none; accent-color: var(--ink); }
+.active-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; border: 1px solid var(--line-2); border-radius: 999px; font-size: .8rem; text-decoration: none; background: var(--paper); }
+.empty { padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); }
+.pager { display: flex; justify-content: center; gap: 6px; margin-top: 56px; }
+.pager a, .pager span { min-width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); text-decoration: none; font-size: .9rem; }
+.pager [aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.cat-intro { max-width: 70ch; }
+.cat-body { border-top: 1px solid var(--line); padding-top: 40px; margin-top: 64px; }
+
+/* --- Product page --------------------------------------------------------- */
+.pdp { display: grid; gap: clamp(28px, 4vw, 72px); padding-block: 24px 72px; }
+.gallery-main { position: relative; aspect-ratio: 4 / 5; background: var(--ground-2); overflow: hidden; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 32px) / 5); gap: 8px; margin-top: 8px; overflow-x: auto; scrollbar-width: thin; }
+.gallery-thumbs button { padding: 0; border: 1px solid transparent; background: var(--ground-2); cursor: pointer; aspect-ratio: 4 / 5; overflow: hidden; }
+.gallery-thumbs button[aria-current="true"] { border-color: var(--ink); }
+.gallery-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.photo-note { font-size: .78rem; color: var(--muted); margin-top: 10px; }
+.buy { align-self: start; }
+@media (min-width: 900px) { .buy { position: sticky; top: 100px; } }
+.buy h1 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); margin-bottom: 8px; }
+.buy .subtitle { color: var(--ink-2); font-size: 1.05rem; margin-bottom: 18px; }
+.buy .price-line { display: flex; align-items: baseline; gap: 12px; font-size: 1.35rem; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.fx-note { font-size: .76rem; color: var(--muted); font-weight: 400; }
+fieldset.option { border: 0; margin: 0 0 20px; padding: 0; }
+fieldset.option legend { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; padding: 0; }
+fieldset.option legend span { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-2); margin-left: 6px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt span { display: inline-grid; place-items: center; min-width: 48px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line-2); background: var(--paper); cursor: pointer; font-size: .9rem; }
+.opt--swatch span { width: 44px; min-width: 44px; padding: 0; border-radius: 50%; border: 3px solid var(--paper); box-shadow: 0 0 0 1px var(--line-2); }
+.opt input:checked + span { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.opt--swatch input:checked + span { border-color: var(--paper); box-shadow: 0 0 0 2px var(--ink); }
+.opt input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.opt.is-unavailable span { opacity: .4; text-decoration: line-through; }
+.stock { display: flex; align-items: center; gap: 8px; font-size: .9rem; margin: 4px 0 18px; }
+.stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.stock[data-state="low"]::before { background: var(--warn); }
+.stock[data-state="mto"]::before { background: var(--accent); }
+.stock[data-state="out"]::before { background: var(--muted); }
+.buy-row { display: grid; grid-template-columns: 110px 1fr 50px; gap: 10px; }
+.qty { display: grid; grid-template-columns: 34px 1fr 34px; border: 1px solid var(--line-2); background: var(--paper); height: 50px; }
+.qty button { border: 0; background: none; cursor: pointer; font-size: 1.1rem; }
+.qty input { width: 100%; border: 0; background: none; text-align: center; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.buy-row .wish-btn { position: static; width: 50px; height: 50px; border: 1px solid var(--line-2); border-radius: var(--radius); }
+.buy-meta { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; font-size: .88rem; color: var(--ink-2); }
+.buy-meta li { display: flex; gap: 10px; align-items: flex-start; }
+.buy-meta svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--accent); }
+.accordion { margin-top: 30px; border-top: 1px solid var(--line); }
+.accordion details { border-bottom: 1px solid var(--line); }
+.accordion summary { list-style: none; cursor: pointer; padding: 18px 0; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; display: flex; justify-content: space-between; }
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after { content: "+"; font-size: 1.2rem; font-weight: 400; line-height: 1; }
+.accordion details[open] summary::after { content: "−"; }
+.accordion .acc-body { padding-bottom: 20px; font-size: .95rem; color: var(--ink-2); }
+.spec { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.spec th { text-align: left; font-weight: 600; color: var(--ink); width: 38%; padding: 8px 12px 8px 0; vertical-align: top; }
+.spec td { padding: 8px 0; }
+.spec tr + tr { border-top: 1px solid var(--line); }
+.tbc { color: var(--warn); font-style: italic; }
+
+.reviews { border-top: 1px solid var(--line); padding-block: 56px; }
+.review { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.stars { color: var(--accent); letter-spacing: 2px; }
+.verified { font-size: .74rem; color: var(--ok); font-weight: 600; margin-left: 8px; }
+
+/* --- Forms ---------------------------------------------------------------- */
+.form-grid { display: grid; gap: 16px; }
+.field label, .field .label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: 6px; }
+.field input:not([type="checkbox"]):not([type="radio"]), .field select, .field textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--line-2); background: #fff; border-radius: var(--radius);
+}
+.field textarea { min-height: 130px; resize: vertical; }
+.field .hint { font-size: .8rem; color: var(--muted); margin-top: 5px; }
+.field .err { font-size: .82rem; color: var(--bad); margin-top: 5px; }
+.field.has-err input, .field.has-err select { border-color: var(--bad); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.panel { background: var(--paper); border: 1px solid var(--line); padding: clamp(20px, 3vw, 36px); }
+.auth { max-width: 460px; margin: 48px auto 96px; }
+.auth h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+
+/* --- Cart + checkout ------------------------------------------------------ */
+.cart-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 28px 96px; align-items: start; }
+.cart-layout > *, .shop-layout > *, .pdp > *, .split > * { min-width: 0; }
+.cart-line { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.cart-line > div { min-width: 0; }
+.cart-line .line-actions { flex-wrap: wrap; }
+.cart-line .thumb { aspect-ratio: 4 / 5; background: var(--ground-2); overflow: hidden; }
+.cart-line .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.cart-line h2 { font-size: 1.3rem; margin: 0 0 4px; }
+.cart-line h2 a { text-decoration: none; }
+.cart-line .line-actions { display: flex; gap: 14px; align-items: center; margin-top: 10px; }
+.cart-line .qty { height: 42px; width: 110px; }
+.text-btn { background: none; border: 0; padding: 8px 0; min-height: 32px; cursor: pointer; font-size: .82rem; text-decoration: underline; text-underline-offset: 3px; color: var(--ink-2); }
+.summary { background: var(--paper); border: 1px solid var(--line); padding: 26px; }
+.summary h2 { font-size: 1.7rem; }
+.sum-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: .94rem; }
+.sum-row.total { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 16px; font-size: 1.15rem; font-weight: 700; }
+.coupon-form { display: flex; gap: 8px; margin: 14px 0; }
+.coupon-form input { flex: 1; min-width: 0; min-height: 44px; border: 1px solid var(--line-2); padding: 0 12px; background: #fff; border-radius: var(--radius); text-transform: uppercase; }
+.coupon-form .btn { min-height: 44px; padding: 0 16px; }
+.rate-list, .pay-list { display: grid; gap: 8px; }
+.radio-card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid var(--line-2); background: #fff; cursor: pointer; }
+.radio-card:has(input:checked) { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.radio-card input { margin-top: 4px; accent-color: var(--ink); }
+.radio-card .rc-main { flex: 1; }
+.radio-card .rc-price { font-weight: 600; }
+.test-tag { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: #fbeed3; color: #74500d; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; vertical-align: 1px; }
+.checkout-steps h2 { font-size: 1.6rem; margin: 34px 0 16px; }
+.checkout-steps h2:first-child { margin-top: 0; }
+.notice { padding: 14px 16px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: .92rem; margin: 16px 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { position: relative; padding: 0 0 22px 26px; border-left: 1px solid var(--line-2); margin-left: 6px; }
+.timeline li::before { content: ""; position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--ink); }
+.timeline li:last-child { border-left-color: transparent; }
+.status-pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--ground-2); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
+.status-pill[data-s="processing"], .status-pill[data-s="shipped"] { background: #e3ecdf; color: #2f5a3b; }
+.status-pill[data-s="delivered"] { background: #d9e6d4; color: #24472e; }
+.status-pill[data-s="cancelled"], .status-pill[data-s="refunded"] { background: #f1dcd6; color: #7e2f20; }
+.table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.table th { text-align: left; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 10px 8px; border-bottom: 1px solid var(--line-2); }
+.table td { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.scroll-x { overflow-x: auto; }
+.account-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 30px; font-size: .9rem; }
+.account-nav a[aria-current="page"] { font-weight: 700; }
+
+/* --- Prose ---------------------------------------------------------------- */
+.prose { font-size: 1.04rem; color: var(--ink-2); }
+.prose h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--ink); margin-top: 1.6em; }
+.prose h3 { font-size: 1.35rem; color: var(--ink); margin-top: 1.4em; }
+.prose a { color: var(--accent-ink); }
+.prose ul, .prose ol { padding-left: 1.2em; }
+.prose li { margin-bottom: .4em; }
+.review-flag { font-size: .82rem; padding: 10px 14px; background: #fbeed3; border-left: 3px solid var(--warn); margin-bottom: 26px; }
+
+/* --- Footer --------------------------------------------------------------- */
+.site-footer { background: var(--slate); color: #cfc7ba; padding-block: 64px 28px; font-size: .9rem; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+.footer-grid { display: grid; gap: 36px; grid-template-columns: repeat(2, 1fr); }
+.footer-brand { grid-column: 1 / -1; }
+.footer-brand .brand-name { color: #fff; font-size: 1.9rem; }
+.footer-brand p { max-width: 38ch; margin-top: 14px; }
+.site-footer h2 { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin: 0 0 14px; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.site-footer li a { display: inline-block; padding-block: 6px; }
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 48px; padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .78rem; color: #9d968b; }
+.pay-marks { display: flex; gap: 8px; align-items: center; }
+.pay-marks span { border: 1px solid rgba(255, 255, 255, .2); padding: 3px 8px; font-size: .7rem; letter-spacing: .06em; }
+
+/* --- Toast ---------------------------------------------------------------- */
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 20px); z-index: 80; background: var(--ink); color: #fff; padding: 14px 20px; font-size: .92rem; opacity: 0; pointer-events: none; transition: opacity .3s var(--ease), transform .3s var(--ease); max-width: calc(100vw - 32px); display: flex; gap: 16px; align-items: center; }
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast a { color: #fff; font-weight: 700; white-space: nowrap; }
+
+/* --- Coming soon ---------------------------------------------------------- */
+.soon { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 40px var(--gutter); background: var(--ground-2); }
+.soon .brand svg { width: 52px; }
+.soon .brand-name { font-size: clamp(2.2rem, 6vw, 4rem); }
+
+/* --- Utilities used by templates ------------------------------------------ */
+.page-body { padding-block: 32px 96px; }
+.page-body-top { margin-block: 32px 96px; }
+.stack { display: grid; gap: 32px; max-width: 980px; }
+.flat { border-bottom: 0; }
+.centered { text-align: center; }
+.centered .crumbs ol { justify-content: center; }
+.centered-text { text-align: center; }
+.centered-block { margin-inline: auto; }
+.flush { margin: 0; }
+.upper { text-transform: uppercase; }
+.h-md { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.h-sm { font-size: 1.6rem; }
+.h-xs { font-size: 1.3rem; }
+.row-between { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.inline-search { display: flex; gap: 10px; max-width: 560px; margin-top: 8px; }
+.inline-search input { flex: 1; min-width: 0; min-height: 50px; border: 1px solid var(--line-2); padding: 0 14px; background: #fff; border-radius: var(--radius); }
+.post-hero { margin: 0 auto 48px; max-width: 1080px; }
+.split { display: grid; gap: 40px; }
+.form-note { margin-top: 10px; }
+.od-grid { display: grid; gap: 32px; margin-top: 22px; }
+.cart-foot { margin-top: 22px; }
+.ship-estimate { margin: 14px 0 6px; }
+.ship-estimate label { display: block; margin-bottom: 6px; }
+.ship-estimate select { width: 100%; min-height: 44px; border: 1px solid var(--line-2); background: #fff; padding: 0 10px; border-radius: var(--radius); }
+.summary .centered-text svg, .centered-text svg { display: inline-block; width: 14px; height: 14px; vertical-align: -2px; }
+.terms-field { margin-top: 26px; }
+.check-field { align-self: end; padding-bottom: 12px; }
+.pay-again { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 10px; }
+.save-account { margin-top: 24px; }
+.auth-alt { margin-top: 20px; }
+.inline-form { display: inline; }
+.account-details { margin-top: 56px; }
+.soon-copy { margin-top: 26px; }
+.soon .brand { display: inline-flex; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1.4fr 1fr; gap: 64px; }
+  .od-grid { grid-template-columns: 1fr 1.2fr; }
+}
+
+/* --- Breakpoints ---------------------------------------------------------- */
+@media (min-width: 640px) {
+  .promise + .promise { border-top: 0; border-left: 1px solid var(--line); }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+  .form-grid.two { grid-template-columns: 1fr 1fr; }
+  .form-grid .span-2 { grid-column: 1 / -1; }
+  .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-brand { grid-column: auto; }
+}
+@media (max-width: 639px) {
+  .promises { grid-template-columns: 1fr; }
+  .announce .announce-msg { font-size: .74rem; }
+}
+@media (min-width: 900px) {
+  .hide-sm { display: inline-grid !important; }
+  .menu-toggle { display: none; }
+  .nav-primary { display: block; }
+  .header-row { min-height: 88px; }
+  .hero { grid-template-columns: 1.05fr 1fr; min-height: min(78vh, 760px); }
+  .hero-media { aspect-ratio: auto; order: 2; }
+  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+  .product-grid { grid-template-columns: repeat(4, 1fr); }
+  .product-grid.three { grid-template-columns: repeat(3, 1fr); }
+  .craft { grid-template-columns: 1fr 1.1fr; }
+  .shop-layout { grid-template-columns: 260px 1fr; gap: 48px; }
+  .filters > summary { pointer-events: none; }
+  .filters > summary .toggle-hint { display: none; }
+  .pdp { grid-template-columns: 1.15fr 1fr; }
+  .cart-layout { grid-template-columns: 1fr 400px; gap: 56px; }
+  .cart-layout.checkout { grid-template-columns: 1fr 420px; }
+  .summary { position: sticky; top: 108px; }
+}
+@media (max-width: 479px) {
+  .cart-line { grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+  .cart-line > .price { grid-column: 2; margin: -4px 0 0; }
+  .brand-sub { letter-spacing: .14em; font-size: .5rem; white-space: nowrap; }
+  .demo-bar { font-size: .74rem; }
+}
+@media (max-width: 379px) {
+  .header-row { gap: 6px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .brand-name { font-size: 1.2rem; }
+  .brand-sub { letter-spacing: .1em; font-size: .46rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .site-header, .site-footer, .announce, .demo-bar, .toast { display: none !important; }
+}
+
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="demo-bar" role="note"><strong>PREVIEW</strong> — a read-only copy of the shop in progress. Sample products and licensed sample photos; buying, accounts and search are switched off here.</div>
+
+<div class="announce">
+  <div class="wrap">
+    <p class="announce-msg">Free UK delivery on orders over £150.00</p>
+    <form data-preview-form method="post" action="preview.html" data-autosubmit>
+      <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">      <label class="sr-only" for="cur">Display currency</label>
+      <select id="cur" name="currency">
+                <option value="GBP" selected>GBP £</option>
+                <option value="USD">USD $</option>
+                <option value="EUR">EUR €</option>
+              </select>
+      <noscript><button type="submit" class="text-btn" style="color:inherit">Set</button></noscript>
+    </form>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="icon-btn menu-toggle" type="button" aria-controls="drawer" aria-expanded="false" data-drawer-open><span class="sr-only">Menu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <nav class="nav-primary" aria-label="Primary">
+        <ul>
+          <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop-shawls.html">Shawls</a></li>
+                    <li><a href="shop-stoles-and-scarves.html">Stoles &amp; Scarves</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <a class="brand" href="./" aria-label="Everest Craftria — home">
+      <svg viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 22 14 8l6 7 6-10 9 11 3-3 8 9"/><path d="M2 27h44" stroke-dasharray="2.5 2.5"/></svg>      <span class="brand-name">Everest Craftria</span>
+      <span class="brand-sub">Handmade Nepali Pashmina</span>
+    </a>
+
+    <div class="header-tools">
+      <button class="icon-btn" type="button" aria-controls="search-panel" aria-expanded="false" data-search-toggle><span class="sr-only">Search</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></button>
+      <a class="icon-btn hide-sm" href="preview.html" data-preview><span class="sr-only">Sign in</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a class="icon-btn hide-sm" href="preview.html" data-preview><span class="sr-only">Wishlist</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9-9.2C1.8 7.7 4 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3C20 5 22.2 7.7 21 10.8 19 15.6 12 20 12 20Z"/></svg></a>
+      <a class="icon-btn" href="preview.html" data-preview><span class="sr-only">Bag</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" data-cart-count hidden>0</span></a>
+    </div>
+  </div>
+  <div class="search-panel" id="search-panel" hidden>
+    <form data-preview-form class="wrap" action="preview.html" method="get" role="search">
+      <label class="sr-only" for="q">Search the shop</label>
+      <input id="q" name="q" type="search" placeholder="Search shawls, colours, blends…" autocomplete="off">
+      <button class="btn" type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <span class="brand-name" style="font-family:var(--serif);font-size:1.4rem">Everest Craftria</span>
+      <button class="icon-btn" type="button" data-drawer-close><span class="sr-only">Close menu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="shop.html">Shop all</a></li>
+                <li><a href="shop-shawls.html">Shawls</a></li>
+                <li><a href="shop-stoles-and-scarves.html">Stoles &amp; Scarves</a></li>
+                <li><a href="shop-wraps-and-throws.html">Wraps &amp; Throws</a></li>
+                <li><a href="shop-mens-scarves.html">Men’s Scarves</a></li>
+                <li><a href="about.html">Our Story</a></li>
+      </ul>
+      <ul class="drawer-secondary" style="margin-top:24px">
+        <li><a href="preview.html" data-preview>Sign in / Register</a></li>
+        <li><a href="preview.html" data-preview>Wishlist</a></li>
+        <li><a href="track-order.html">Track an order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <button class="drawer-scrim" type="button" data-drawer-close tabindex="-1"><span class="sr-only">Close menu</span></button>
+</div>
+
+
+<main id="main">
+<section class="hero">
+  <div class="hero-media">
+    <img alt="A woman in a camel coat with a grey scarf looped around her neck on a winter street" width="1200" height="1400" decoding="async" fetchpriority="high" src="uploads/samples/woman-coat-scarf.webp" srcset="uploads/samples/woman-coat-scarf-480.webp 480w, uploads/samples/woman-coat-scarf-960.webp 960w, uploads/samples/woman-coat-scarf-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw">  </div>
+  <div class="hero-copy">
+    <p class="eyebrow">Everest Craftria</p>
+    <h1>Nepali pashmina, made by hand</h1>
+    <p class="lede">Shawls, stoles and wraps from Nepal — soft, warm and light, and made to be worn for years.</p>
+    <div class="hero-actions">
+      <a class="btn" href="shop.html">Shop the collection</a>
+      <a class="link-arrow" href="about.html">Our story</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">The collection</p>
+        <h2>Find your piece</h2>
+      </div>
+      <a class="link-arrow" href="shop.html">Shop all</a>
+    </div>
+    <div class="cat-grid">
+            <a class="cat-tile" href="shop-shawls.html">
+        <div class="media"><img alt="A woman in a long coat wearing a soft grey scarf with fringed ends" width="800" height="1000" decoding="async" loading="lazy" src="uploads/samples/woman-grey-scarf.webp" srcset="uploads/samples/woman-grey-scarf-480.webp 480w, uploads/samples/woman-grey-scarf-960.webp 960w, uploads/samples/woman-grey-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw"></div>
+        <div class="label"><h3>Shawls</h3><span class="n">3 pieces</span></div>
+      </a>
+            <a class="cat-tile" href="shop-stoles-and-scarves.html">
+        <div class="media"><img alt="A woman in a grey coat wearing a long blue scarf, against a blue wall" width="800" height="1000" decoding="async" loading="lazy" src="uploads/samples/woman-blue-scarf.webp" srcset="uploads/samples/woman-blue-scarf-480.webp 480w, uploads/samples/woman-blue-scarf-960.webp 960w, uploads/samples/woman-blue-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw"></div>
+        <div class="label"><h3>Stoles &amp; Scarves</h3><span class="n">4 pieces</span></div>
+      </a>
+            <a class="cat-tile" href="shop-wraps-and-throws.html">
+        <div class="media"><img alt="A mustard throw draped over the arm of a grey sofa" width="800" height="1000" decoding="async" loading="lazy" src="uploads/samples/throw-mustard-sofa.webp" srcset="uploads/samples/throw-mustard-sofa-480.webp 480w, uploads/samples/throw-mustard-sofa-960.webp 960w, uploads/samples/throw-mustard-sofa-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw"></div>
+        <div class="label"><h3>Wraps &amp; Throws</h3><span class="n">2 pieces</span></div>
+      </a>
+            <a class="cat-tile" href="shop-mens-scarves.html">
+        <div class="media"><img alt="A man in a grey jumper wearing a charcoal woven scarf, against a grey background" width="800" height="1000" decoding="async" loading="lazy" src="uploads/samples/man-charcoal-scarf.webp" srcset="uploads/samples/man-charcoal-scarf-480.webp 480w, uploads/samples/man-charcoal-scarf-960.webp 960w, uploads/samples/man-charcoal-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw"></div>
+        <div class="label"><h3>Men’s Scarves</h3><span class="n">3 pieces</span></div>
+      </a>
+          </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Featured</p>
+        <h2>Pieces to live in</h2>
+      </div>
+      <a class="link-arrow" href="shop.html">View all</a>
+    </div>
+    <div class="product-grid">
+      <article class="card">
+  <a class="card-media" href="product-classic-handwoven-shawl.html" tabindex="-1" aria-hidden="true">
+    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" src="uploads/samples/shawl-grey-studio.webp" srcset="uploads/samples/shawl-grey-studio-480.webp 480w, uploads/samples/shawl-grey-studio-960.webp 960w, uploads/samples/shawl-grey-studio-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" class="alt-img" src="uploads/samples/woman-grey-scarf.webp" srcset="uploads/samples/woman-grey-scarf-480.webp 480w, uploads/samples/woman-grey-scarf-960.webp 960w, uploads/samples/woman-grey-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <span class="badge badge--demo">Demo</span>  </a>
+  <span class="badge">New</span>  <form data-preview-form method="post" action="preview.html" data-wish>
+    <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">    <input type="hidden" name="product_id" value="1">
+    <button class="icon-btn wish-btn" type="submit" aria-pressed="false"><span class="sr-only">Save Classic Handwoven Shawl to wishlist</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9-9.2C1.8 7.7 4 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3C20 5 22.2 7.7 21 10.8 19 15.6 12 20 12 20Z"/></svg></button>
+  </form>
+  <div class="card-body">
+    <p class="card-cat">Shawls</p>
+    <h3 class="card-title"><a href="product-classic-handwoven-shawl.html">Classic Handwoven Shawl</a></h3>
+    <div class="card-foot">
+      <span class="price">£185.00</span>            <span class="swatches" aria-label="4 colours">
+                <span class="swatch-dot" style="background:#8f8b86" title="Natural Grey"></span>
+                <span class="swatch-dot" style="background:#e9e1d1" title="Ivory"></span>
+                <span class="swatch-dot" style="background:#8e3b2e" title="Madder Red"></span>
+                <span class="swatch-dot" style="background:#3c3e41" title="Charcoal"></span>
+              </span>
+          </div>
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="product-diamond-weave-shawl.html" tabindex="-1" aria-hidden="true">
+    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" src="uploads/samples/woman-coat-scarf.webp" srcset="uploads/samples/woman-coat-scarf-480.webp 480w, uploads/samples/woman-coat-scarf-960.webp 960w, uploads/samples/woman-coat-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" class="alt-img" src="uploads/samples/shawl-grey-studio.webp" srcset="uploads/samples/shawl-grey-studio-480.webp 480w, uploads/samples/shawl-grey-studio-960.webp 960w, uploads/samples/shawl-grey-studio-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <span class="badge badge--demo">Demo</span>  </a>
+  <span class="badge">New</span>  <form data-preview-form method="post" action="preview.html" data-wish>
+    <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">    <input type="hidden" name="product_id" value="2">
+    <button class="icon-btn wish-btn" type="submit" aria-pressed="false"><span class="sr-only">Save Diamond Weave Shawl to wishlist</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9-9.2C1.8 7.7 4 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3C20 5 22.2 7.7 21 10.8 19 15.6 12 20 12 20Z"/></svg></button>
+  </form>
+  <div class="card-body">
+    <p class="card-cat">Shawls</p>
+    <h3 class="card-title"><a href="product-diamond-weave-shawl.html">Diamond Weave Shawl</a></h3>
+    <div class="card-foot">
+      <span class="price">£210.00</span>            <span class="swatches" aria-label="2 colours">
+                <span class="swatch-dot" style="background:#3c3e41" title="Charcoal"></span>
+                <span class="swatch-dot" style="background:#e9e1d1" title="Ivory"></span>
+              </span>
+          </div>
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="product-everyday-stole.html" tabindex="-1" aria-hidden="true">
+    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" src="uploads/samples/woman-blue-scarf.webp" srcset="uploads/samples/woman-blue-scarf-480.webp 480w, uploads/samples/woman-blue-scarf-960.webp 960w, uploads/samples/woman-blue-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" class="alt-img" src="uploads/samples/scarf-blue-studio.webp" srcset="uploads/samples/scarf-blue-studio-480.webp 480w, uploads/samples/scarf-blue-studio-960.webp 960w, uploads/samples/scarf-blue-studio-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <span class="badge badge--demo">Demo</span>  </a>
+  <span class="badge">New</span>  <form data-preview-form method="post" action="preview.html" data-wish>
+    <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">    <input type="hidden" name="product_id" value="4">
+    <button class="icon-btn wish-btn" type="submit" aria-pressed="false"><span class="sr-only">Save Everyday Stole to wishlist</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9-9.2C1.8 7.7 4 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3C20 5 22.2 7.7 21 10.8 19 15.6 12 20 12 20Z"/></svg></button>
+  </form>
+  <div class="card-body">
+    <p class="card-cat">Stoles &amp; Scarves</p>
+    <h3 class="card-title"><a href="product-everyday-stole.html">Everyday Stole</a></h3>
+    <div class="card-foot">
+      <span class="price">£95.00</span>            <span class="swatches" aria-label="5 colours">
+                <span class="swatch-dot" style="background:#1f6fbf" title="Cobalt Blue"></span>
+                <span class="swatch-dot" style="background:#8f8b86" title="Natural Grey"></span>
+                <span class="swatch-dot" style="background:#e9e1d1" title="Ivory"></span>
+                <span class="swatch-dot" style="background:#b88b5a" title="Camel"></span>
+                <span class="swatch-dot" style="background:#c39a92" title="Rose Dust"></span>
+              </span>
+          </div>
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="product-featherweight-scarf.html" tabindex="-1" aria-hidden="true">
+    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" src="uploads/samples/scarf-blue-studio.webp" srcset="uploads/samples/scarf-blue-studio-480.webp 480w, uploads/samples/scarf-blue-studio-960.webp 960w, uploads/samples/scarf-blue-studio-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <img alt="" width="1600" height="2000" decoding="async" loading="lazy" class="alt-img" src="uploads/samples/woman-blue-scarf.webp" srcset="uploads/samples/woman-blue-scarf-480.webp 480w, uploads/samples/woman-blue-scarf-960.webp 960w, uploads/samples/woman-blue-scarf-1600.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw">    <span class="badge badge--demo">Demo</span>  </a>
+  <span class="badge">New</span>  <form data-preview-form method="post" action="preview.html" data-wish>
+    <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">    <input type="hidden" name="product_id" value="5">
+    <button class="icon-btn wish-btn" type="submit" aria-pressed="false"><span class="sr-only">Save Featherweight Scarf to wishlist</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9-9.2C1.8 7.7 4 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3C20 5 22.2 7.7 21 10.8 19 15.6 12 20 12 20Z"/></svg></button>
+  </form>
+  <div class="card-body">
+    <p class="card-cat">Stoles &amp; Scarves</p>
+    <h3 class="card-title"><a href="product-featherweight-scarf.html">Featherweight Scarf</a></h3>
+    <div class="card-foot">
+      <span class="price">£75.00</span>            <span class="swatches" aria-label="3 colours">
+                <span class="swatch-dot" style="background:#1f6fbf" title="Cobalt Blue"></span>
+                <span class="swatch-dot" style="background:#e9e1d1" title="Ivory"></span>
+                <span class="swatch-dot" style="background:#c28a33" title="Saffron"></span>
+              </span>
+          </div>
+  </div>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--slate">
+  <div class="wrap craft">
+    <div class="craft-media"><img alt="Four balls of undyed natural wool yarn in grey and brown tones" width="1600" height="2000" decoding="async" loading="lazy" src="uploads/samples/wool-yarn.webp" srcset="uploads/samples/wool-yarn-480.webp 480w, uploads/samples/wool-yarn-960.webp 960w, uploads/samples/wool-yarn-1600.webp 1600w" sizes="(min-width: 900px) 45vw, 100vw"></div>
+    <div>
+      <p class="eyebrow">How pashmina is made</p>
+      <h2 style="color:#fff">Slow by nature, <em class="serif-i">soft by design</em></h2>
+      <p style="color:#c9c1b4;max-width:52ch">Pashmina is the fine undercoat of Himalayan mountain goats. Turning it into cloth is still largely hand work — and every step shows in the finished piece.</p>
+      <ol class="craft-steps">
+        <li><h3>Combing</h3><p>The soft undercoat is combed out in spring, when the goats naturally moult it.</p></li>
+        <li><h3>Spinning</h3><p>The fibre is so fine that it is traditionally spun by hand into yarn.</p></li>
+        <li><h3>Weaving</h3><p>Yarn is woven on a loom, often in a blend with silk for strength and drape.</p></li>
+        <li><h3>Finishing</h3><p>Pieces are washed, dyed and fringed by hand before they are ready to wear.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="wrap">
+    <div class="promises">
+      <div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6h11v10H2zM13 10h4l4 4v2h-8z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><div><h3>UK &amp; worldwide delivery</h3><p>Free UK delivery over £150.00.</p></div></div>
+      <div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h11a5 5 0 0 1 0 10H9"/><path d="m8 5-4 4 4 4"/></svg><div><h3>14-day returns</h3><p>Changed your mind? Send it back within 14 days of delivery.</p></div></div>
+      <div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><h3>Secure checkout</h3><p>Pay safely by card or PayPal. We never see your card details.</p></div></div>
+      <div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11m0-6.5a1.5 1.5 0 0 1 3 0V11m0-4.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.2a1.5 1.5 0 0 1 2.3-1.9L8 16"/></svg><div><h3>Made by hand in Nepal</h3><p>Every piece is naturally handmade.</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--paper newsletter">
+  <div class="wrap narrow">
+    <p class="eyebrow">Letters from Everest Craftria</p>
+    <h2>New pieces, first</h2>
+    <p class="lede" style="margin-inline:auto">An occasional email when new work arrives. No more than once a month, and you can unsubscribe any time.</p>
+    <form data-preview-form method="post" action="preview.html">
+      <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">      <label class="sr-only" for="nl-email">Email address</label>
+      <input id="nl-email" type="email" name="email" placeholder="Your email address" required autocomplete="email">
+      <span class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></span>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name" style="font-family:var(--serif)">Everest Craftria</span>
+        <p>Naturally handmade pashmina from Nepal, delivered to the UK and worldwide.</p>
+      </div>
+      <div>
+        <h2>Shop</h2>
+        <ul>
+          <li><a href="shop.html">All pieces</a></li>
+          <li><a href="shop-shawls.html">Shawls</a></li><li><a href="shop-stoles-and-scarves.html">Stoles &amp; Scarves</a></li><li><a href="shop-wraps-and-throws.html">Wraps &amp; Throws</a></li><li><a href="shop-mens-scarves.html">Men’s Scarves</a></li>        </ul>
+      </div>
+      <div>
+        <h2>Help</h2>
+        <ul>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="care-guide.html">Pashmina Care Guide</a></li>
+                    <li><a href="returns.html">Returns &amp; Refunds</a></li>
+                    <li><a href="track-order.html">Track an order</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about.html">Our story</a></li>
+                              <li><a href="terms.html">Terms of Sale</a></li>
+                    <li><a href="privacy.html">Privacy Notice</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                  </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p style="margin:0">© 2026 Everest Craftria LTD · Registered in England &amp; Wales, No. 16990152 · 55 Lambourn Road, Oxford, OX4 4SD, United Kingdom</p>
+      <p style="margin:0"><a href="photo-credits.html">Photo credits</a></p>      <div class="pay-marks" aria-label="Payment methods">
+                      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="promo" id="promo" hidden data-promo data-delay="9" data-days="30">
+  <button class="promo-scrim" type="button" data-promo-close tabindex="-1"><span class="sr-only">Close</span></button>
+  <div class="promo-card" role="dialog" aria-modal="true" aria-labelledby="promo-h" aria-describedby="promo-b">
+    <button class="icon-btn promo-x" type="button" data-promo-close><span class="sr-only">Close this offer</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+
+    <div data-promo-step="form">
+      <p class="eyebrow">Welcome</p>
+      <h2 id="promo-h">Take 10% off your first order</h2>
+      <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
+      <form data-preview-form method="post" action="preview.html" data-promo-form>
+        <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
+        <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
+        <div class="field">
+          <label for="promo-email">Email address</label>
+          <input id="promo-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <label class="check promo-consent"><input type="checkbox" name="consent" value="1" required> <span>Email me new pieces, offers and care notes. I can unsubscribe at any time.</span></label>
+        <p class="promo-error" role="alert" hidden></p>
+        <button class="btn btn--block" type="submit">Send my code</button>
+        <p class="small muted promo-legal">One code per customer, for your first order. See our <a href="privacy.html">privacy notice</a>.</p>
+      </form>
+    </div>
+
+    <div data-promo-step="done" hidden>
+      <p class="eyebrow">Your code</p>
+      <h2>Thank you — here it is</h2>
+      <p class="promo-code"><code data-promo-code>WELCOME10</code>
+        <button class="btn btn--ghost btn--small" type="button" data-promo-copy>Copy</button></p>
+      <p class="muted">Enter it in your bag to take 10% off your first order. We’ve emailed it to you as well.</p>
+      <p><a class="btn btn--block" href="shop.html">Start shopping</a></p>
+    </div>
+  </div>
+</div>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<script src="assets/js/preview.js"></script>

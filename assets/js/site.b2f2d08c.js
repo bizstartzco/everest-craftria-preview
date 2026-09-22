@@ -160,6 +160,8 @@
         if (count && typeof data.count === 'number') {
           count.textContent = String(data.count);
           count.hidden = data.count === 0;
+          count.classList.add('is-bump');
+          setTimeout(function () { count.classList.remove('is-bump'); }, 320);
         }
         toast(data.message || 'Added to your bag.', data.ok ? buy.action.replace(/\/add$/, '') : null, 'View bag');
       }).catch(function () {
@@ -210,6 +212,164 @@
         h.type = 'hidden'; h.name = 'recalc'; h.value = '1';
         checkout.appendChild(h);
         checkout.submit();
+      });
+    }
+  }
+  // --- Motion --------------------------------------------------------------
+  // Only enhance when the browser can do it and the visitor hasn't asked for
+  // less motion. Without this class every animated rule is inert, so the page
+  // is complete with JavaScript off.
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (window.IntersectionObserver && !calm.matches) {
+    document.documentElement.classList.add('anim');
+
+    var groups = ['.section-head', '.cat-tile', '.card', '.promise', '.craft-media', '.craft-steps li', '.post-card', '.newsletter form', '.spec', '.review'];
+    groups.forEach(function (sel) {
+      // Never inside a <details>: a closed one is skipped rendering, the observer
+      // never fires for it, and the content stays faded out even after the
+      // visitor opens the panel. The accordion has its own open animation.
+      var items = $$(sel).filter(function (el) { return !el.closest('.hero') && !el.closest('details'); });
+      items.forEach(function (el, i) {
+        el.setAttribute('data-reveal', '');
+        // Stagger within a row, then reset, so a long grid never waits seconds.
+        el.style.setProperty('--reveal-delay', (i % 4) * 70 + 'ms');
+      });
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    $$('[data-reveal]').forEach(function (el) { io.observe(el); });
+
+    // Belt and braces for anything revealed by opening a panel later: show it
+    // outright rather than trusting an observer that may never fire.
+    document.addEventListener('toggle', function (e) {
+      if (e.target.tagName === 'DETAILS' && e.target.open) {
+        $$('[data-reveal]:not(.is-in)', e.target).forEach(function (el) { el.classList.add('is-in'); });
+      }
+    }, true);
+
+    // Anything still unseen after load (print, find-in-page, tall screens) shows anyway.
+    setTimeout(function () {
+      $$('[data-reveal]:not(.is-in)').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) el.classList.add('is-in');
+      });
+    }, 1200);
+  }
+
+  var header = $('.site-header');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 40); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // --- Welcome-offer popup -------------------------------------------------
+  var promo = $('[data-promo]');
+  if (promo) {
+    var KEY = 'ec_promo_seen';
+    var days = parseInt(promo.getAttribute('data-days'), 10) || 30;
+    var delay = (parseInt(promo.getAttribute('data-delay'), 10) || 9) * 1000;
+    var lastFocus = null;
+    var shown = false;
+
+    var seenRecently = function () {
+      try {
+        var v = parseInt(window.localStorage.getItem(KEY) || '0', 10);
+        return v > 0 && Date.now() - v < days * 86400000;
+      } catch (e) { return false; }
+    };
+    var remember = function () {
+      try { window.localStorage.setItem(KEY, String(Date.now())); } catch (e) { /* private window */ }
+    };
+    var close = function () {
+      promo.hidden = true;
+      document.body.classList.remove('promo-open');
+      remember();
+      if (lastFocus) lastFocus.focus();
+    };
+    var open = function () {
+      if (shown || seenRecently()) return;
+      shown = true;
+      lastFocus = document.activeElement;
+      promo.hidden = false;
+      document.body.classList.add('promo-open');
+      var first = $('#promo-email', promo) || $('[data-promo-close]', promo);
+      if (first) first.focus({ preventScroll: true });
+    };
+
+    if (!seenRecently()) {
+      var timer = setTimeout(open, delay);
+      // Or sooner, if they head for the tab bar or read half the page.
+      document.addEventListener('mouseout', function (e) {
+        if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); open(); }
+      });
+      window.addEventListener('scroll', function onHalf() {
+        var read = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+        if (read > 0.55) { clearTimeout(timer); open(); window.removeEventListener('scroll', onHalf); }
+      }, { passive: true });
+    }
+
+    $$('[data-promo-close]', promo).forEach(function (b) { b.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !promo.hidden) close();
+      if (e.key === 'Tab' && !promo.hidden) {
+        // Keep the keyboard inside the dialog while it is open.
+        var f = $$('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])', promo)
+          .filter(function (el) { return el.offsetParent !== null; });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    var form = $('[data-promo-form]', promo);
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        if (!window.fetch) return;
+        e.preventDefault();
+        var err = $('.promo-error', promo);
+        var btn = $('button[type=submit]', form);
+        err.hidden = true;
+        btn.disabled = true;
+        fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }, credentials: 'same-origin'
+        }).then(function (r) { return r.json(); }).then(function (d) {
+          if (!d.ok) {
+            err.textContent = d.message || 'Something went wrong. Please try again.';
+            err.hidden = false;
+            return;
+          }
+          if (d.code) $('[data-promo-code]', promo).textContent = d.code;
+          $('[data-promo-step="form"]', promo).hidden = true;
+          $('[data-promo-step="done"]', promo).hidden = false;
+          remember();
+        }).catch(function () {
+          err.textContent = 'We could not reach the shop. Please try again.';
+          err.hidden = false;
+        }).then(function () { btn.disabled = false; });
+      });
+    }
+
+    var copy = $('[data-promo-copy]', promo);
+    if (copy) {
+      copy.addEventListener('click', function () {
+        var code = $('[data-promo-code]', promo).textContent.trim();
+        var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 2000); };
+        if (navigator.clipboard) { navigator.clipboard.writeText(code).then(done, done); return; }
+        var t = document.createElement('textarea');
+        t.value = code; document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); } catch (e) { /* nothing to do */ }
+        document.body.removeChild(t);
+        done();
       });
     }
   }
