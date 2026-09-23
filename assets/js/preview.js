@@ -119,7 +119,16 @@
     if (intent === 'greeting') return answer('greeting', [{ type: 'text', text: 'Hello. What can I help you with?' }], ['Delivery and costs', 'Returns', 'How do I wash it?']);
     if (intent === 'thanks') return answer('thanks', [{ type: 'text', text: 'You’re very welcome. Anything else?' }]);
     if (intent === 'track') return noServer('checking an order');
-    if (intent === 'human') return noServer('sending a message to the team');
+    if (intent === 'human') {
+      // WhatsApp works from a static copy — it is just a link.
+      if (kb.whatsapp) {
+        return answer('human', [
+          { type: 'text', text: 'WhatsApp is the quickest way to reach someone — the button is just below the suggestions. The message form on the live site is switched off in this preview copy.' },
+          { type: 'link', label: 'Chat on WhatsApp', href: kb.whatsapp.href, external: true }
+        ], ['Delivery and costs', 'Returns']);
+      }
+      return noServer('sending a message to the team');
+    }
 
     if (intent === 'delivery') {
       // Named a country? Answer for that country, as the live shop does.

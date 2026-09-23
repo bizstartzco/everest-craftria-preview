@@ -9,7 +9,7 @@
 <link rel="canonical" href="photo-credits.html">
 <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.6938968d.css">
+<link rel="stylesheet" href="assets/css/site.31874227.css">
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <meta name="theme-color" content="#f5f0e8">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="assets/brand/og-image.png">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<script src="assets/js/site.87586988.js" defer></script>
+<script src="assets/js/site.f9f882d2.js" defer></script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
@@ -32,7 +32,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="9a7a8fa987591acc3261823d55b9bbcb34c1da805a3a89a77e31281f7e68ac68">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -250,7 +250,7 @@
       <h2 id="promo-h">Take 10% off your first order</h2>
       <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
       <form data-preview-form method="post" action="preview.html" data-promo-form>
-        <input type="hidden" name="csrf" value="9a7a8fa987591acc3261823d55b9bbcb34c1da805a3a89a77e31281f7e68ac68">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">        <input type="hidden" name="source" value="promo">
         <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
         <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
         <div class="field">
@@ -285,9 +285,14 @@
 
 <section class="assist" id="assistant" hidden data-assist aria-label="Shop assistant">
   <div class="assist-head">
-    <div>
+    <span class="assist-avatar" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 18 9 7l3 5 2-3 4 9z"/>
+      </svg>
+    </span>
+    <div class="assist-head-text">
       <p class="assist-title">Everest Craftria help</p>
-      <p class="assist-sub">Automated help</p>
+      <p class="assist-sub">Automated</p>
     </div>
     <button class="icon-btn" type="button" data-assist-close><span class="sr-only">Close help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
@@ -306,9 +311,22 @@
           <button class="assist-chip" type="button" data-assist-chip>Where is my order?</button>
       </div>
 
+        <a class="assist-wa" href="https://wa.me/15626206525?text=Hello%21%20I%20have%20a%20question%20about%20a%20pashmina%20piece." target="_blank" rel="noopener">
+      <span class="assist-wa-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 11.6a8 8 0 0 1-8.5 8 8.6 8.6 0 0 1-3.2-.6l-4.3 1.2 1.3-4a7.8 7.8 0 0 1-.8-3.4 8 8 0 0 1 8.1-8 8 8 0 0 1 8.4 6.8z"/>
+          <path d="M9.9 9.5c.2-.3.4-.3.6-.3h.4l.8 1.6-.6.7c.5.9 1.2 1.6 2.1 2.1l.7-.6 1.6.8v.4c0 .2 0 .4-.3.6-.5.3-1.1.3-1.8-.1a8 8 0 0 1-3.6-3.6c-.4-.7-.4-1.3-.1-1.7z"/>
+        </svg>
+      </span>
+      <span>
+        <b>Chat on WhatsApp</b>
+        <span class="assist-wa-meta">+1 (562) 620-6525 · a person replies</span>
+      </span>
+    </a>
+  
   <!-- Order lookup: shown only when someone asks about an order. -->
   <form data-preview-form class="assist-side" data-assist-track hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="9a7a8fa987591acc3261823d55b9bbcb34c1da805a3a89a77e31281f7e68ac68">    <input type="hidden" name="form" value="track">
+    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <input type="hidden" name="form" value="track">
     <div class="field">
       <label for="assist-code">Order number</label>
       <input id="assist-code" name="code" type="text" placeholder="EC-XXXXXX" autocomplete="off" required>
@@ -323,7 +341,7 @@
 
   <!-- Handoff: shown when the assistant doesn't know, or someone asks for a person. -->
   <form data-preview-form class="assist-side" data-assist-handoff hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="9a7a8fa987591acc3261823d55b9bbcb34c1da805a3a89a77e31281f7e68ac68">    <input type="hidden" name="form" value="handoff">
+    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <input type="hidden" name="form" value="handoff">
     <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
     <div class="field">
       <label for="assist-email">Your email</label>
@@ -339,12 +357,12 @@
   </div><!-- /assist-body -->
 
   <form data-preview-form class="assist-ask" data-assist-form action="preview.html" method="post">
-    <input type="hidden" name="csrf" value="9a7a8fa987591acc3261823d55b9bbcb34c1da805a3a89a77e31281f7e68ac68">    <label class="sr-only" for="assist-input">Your question</label>
+    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <label class="sr-only" for="assist-input">Your question</label>
     <input id="assist-input" name="message" type="text" autocomplete="off" maxlength="500"
            placeholder="Ask about delivery, returns or care…" data-assist-input>
-    <button class="btn" type="submit" data-assist-send>
+    <button class="assist-send" type="submit" data-assist-send>
       <span class="sr-only">Send</span>
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
     </button>
   </form>
 
