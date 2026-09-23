@@ -9,7 +9,7 @@
 <link rel="canonical" href="delivery.html">
 <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.3c7ef92e.css">
+<link rel="stylesheet" href="assets/css/site.4babd198.css">
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <meta name="theme-color" content="#f5f0e8">
@@ -22,7 +22,7 @@
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everestcraftria.com/"},{"@type":"ListItem","position":2,"name":"Delivery Information"}]}</script>
-<script src="assets/js/site.b2f2d08c.js" defer></script>
+<script src="assets/js/site.fbce9cc5.js" defer></script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="0a7b523dab5d7744b5391d78c29ffcaa6335bcc0e986a0ee8af7b791f9d90ef5">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -131,7 +131,7 @@
 <h2>Customs, duties and taxes</h2>
 <p>Deliveries to countries outside the UK may be charged import duties, taxes and handling fees when they arrive. These are set by the destination country, are not included in our prices, and are paid by the recipient. [TO CONFIRM: If orders ship from Nepal, explain how UK import VAT is handled for UK customers — ask your accountant.]</p>
 <h2>Problems with delivery</h2>
-<p>If your order hasn’t arrived within the estimated time, or arrives damaged, please <a href="contact.html">contact us</a> with your order number and we will sort it out.</p>    <p class="small muted updated">Last updated 22 Sep 2026</p>
+<p>If your order hasn’t arrived within the estimated time, or arrives damaged, please <a href="contact.html">contact us</a> with your order number and we will sort it out.</p>    <p class="small muted updated">Last updated 23 Sep 2026</p>
   </div>
 </div>
 </main>
@@ -187,7 +187,7 @@
       <h2 id="promo-h">Take 10% off your first order</h2>
       <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
       <form data-preview-form method="post" action="preview.html" data-promo-form>
-        <input type="hidden" name="csrf" value="fe288a09fac72fa8d2df407107361a902695cec8f4c89ee479c4066773fbbe99">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="csrf" value="0a7b523dab5d7744b5391d78c29ffcaa6335bcc0e986a0ee8af7b791f9d90ef5">        <input type="hidden" name="source" value="promo">
         <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
         <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
         <div class="field">
@@ -211,6 +211,83 @@
     </div>
   </div>
 </div>
+<button class="assist-launch" type="button" data-assist-open aria-expanded="false" aria-controls="assistant">
+  <span class="assist-launch-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.6L3 21l1.8-5a8.2 8.2 0 0 1-.8-3.5 8.4 8.4 0 0 1 8.5-8.4 8.4 8.4 0 0 1 8.5 8.4z"/>
+    </svg>
+  </span>
+  <span class="assist-launch-text">Ask a question</span>
+</button>
+
+<section class="assist" id="assistant" hidden data-assist aria-label="Shop assistant">
+  <div class="assist-head">
+    <div>
+      <p class="assist-title">Everest Craftria help</p>
+      <p class="assist-sub">Automated help</p>
+    </div>
+    <button class="icon-btn" type="button" data-assist-close><span class="sr-only">Close help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+
+  <div class="assist-body" data-assist-body>
+  <div class="assist-log" data-assist-log role="log" aria-live="polite" aria-atomic="false">
+    <div class="assist-msg assist-msg--bot">
+      <p>Hello — ask me about delivery, returns, care or an order. I answer from this shop’s own pages, and I’ll say so when I don’t know.</p>
+    </div>
+  </div>
+
+  <div class="assist-chips" data-assist-chips>
+          <button class="assist-chip" type="button" data-assist-chip>Delivery and costs</button>
+          <button class="assist-chip" type="button" data-assist-chip>Returns</button>
+          <button class="assist-chip" type="button" data-assist-chip>How do I wash it?</button>
+          <button class="assist-chip" type="button" data-assist-chip>Where is my order?</button>
+      </div>
+
+  <!-- Order lookup: shown only when someone asks about an order. -->
+  <form data-preview-form class="assist-side" data-assist-track hidden method="post" action="preview.html">
+    <input type="hidden" name="csrf" value="0a7b523dab5d7744b5391d78c29ffcaa6335bcc0e986a0ee8af7b791f9d90ef5">    <input type="hidden" name="form" value="track">
+    <div class="field">
+      <label for="assist-code">Order number</label>
+      <input id="assist-code" name="code" type="text" placeholder="EC-XXXXXX" autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label for="assist-track-email">Email on the order</label>
+      <input id="assist-track-email" name="email" type="email" autocomplete="email" required>
+    </div>
+    <button class="btn btn--block" type="submit">Check my order</button>
+    <p class="small muted">We ask for both so nobody else can see your order.</p>
+  </form>
+
+  <!-- Handoff: shown when the assistant doesn't know, or someone asks for a person. -->
+  <form data-preview-form class="assist-side" data-assist-handoff hidden method="post" action="preview.html">
+    <input type="hidden" name="csrf" value="0a7b523dab5d7744b5391d78c29ffcaa6335bcc0e986a0ee8af7b791f9d90ef5">    <input type="hidden" name="form" value="handoff">
+    <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
+    <div class="field">
+      <label for="assist-email">Your email</label>
+      <input id="assist-email" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="assist-message">Your question</label>
+      <textarea id="assist-message" name="message" rows="3" required></textarea>
+    </div>
+    <button class="btn btn--block" type="submit">Send to the team</button>
+    <p class="small muted">A person replies by email, usually within two working days.</p>
+  </form>
+  </div><!-- /assist-body -->
+
+  <form data-preview-form class="assist-ask" data-assist-form action="preview.html" method="post">
+    <input type="hidden" name="csrf" value="0a7b523dab5d7744b5391d78c29ffcaa6335bcc0e986a0ee8af7b791f9d90ef5">    <label class="sr-only" for="assist-input">Your question</label>
+    <input id="assist-input" name="message" type="text" autocomplete="off" maxlength="500"
+           placeholder="Ask about delivery, returns or care…" data-assist-input>
+    <button class="btn" type="submit" data-assist-send>
+      <span class="sr-only">Send</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+
+  <p class="assist-foot">I’m an automated assistant. I answer from this shop’s own pages and order
+    records, and I’ll say when I don’t know rather than guess.</p>
+</section>
 <div class="toast" role="status" aria-live="polite" data-toast></div>
 <script src="assets/js/preview.js"></script></body>
 </html>
