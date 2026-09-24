@@ -32,7 +32,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -59,7 +59,7 @@
 
     <a class="brand" href="./" aria-label="Everest Craftria — home">
       <svg viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 22 14 8l6 7 6-10 9 11 3-3 8 9"/><path d="M2 27h44" stroke-dasharray="2.5 2.5"/></svg>      <span class="brand-name">Everest Craftria</span>
-      <span class="brand-sub">Handmade Nepali Pashmina</span>
+      <span class="brand-sub">Handmade Nepali Cashmere</span>
     </a>
 
     <div class="header-tools">
@@ -204,7 +204,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="brand-name" style="font-family:var(--serif)">Everest Craftria</span>
-        <p>Naturally handmade pashmina from Nepal, delivered to the UK and worldwide.</p>
+        <p>Naturally handmade cashmere from Nepal, delivered to the UK and worldwide.</p>
       </div>
       <div>
         <h2>Shop</h2>
@@ -215,8 +215,8 @@
       <div>
         <h2>Help</h2>
         <ul>
+                    <li><a href="care-guide.html">Cashmere Care Guide</a></li>
                     <li><a href="delivery.html">Delivery Information</a></li>
-                    <li><a href="care-guide.html">Pashmina Care Guide</a></li>
                     <li><a href="returns.html">Returns &amp; Refunds</a></li>
                     <li><a href="track-order.html">Track an order</a></li>
           <li><a href="contact.html">Contact us</a></li>
@@ -250,7 +250,7 @@
       <h2 id="promo-h">Take 10% off your first order</h2>
       <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
       <form data-preview-form method="post" action="preview.html" data-promo-form>
-        <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">        <input type="hidden" name="source" value="promo">
         <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
         <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
         <div class="field">
@@ -311,7 +311,7 @@
           <button class="assist-chip" type="button" data-assist-chip>Where is my order?</button>
       </div>
 
-        <a class="assist-wa" href="https://wa.me/15626206525?text=Hello%21%20I%20have%20a%20question%20about%20a%20pashmina%20piece." target="_blank" rel="noopener">
+        <a class="assist-wa" href="https://wa.me/15626206525?text=Hello%21%20I%20have%20a%20question%20about%20a%20cashmere%20piece." target="_blank" rel="noopener">
       <span class="assist-wa-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.5 11.6a8 8 0 0 1-8.5 8 8.6 8.6 0 0 1-3.2-.6l-4.3 1.2 1.3-4a7.8 7.8 0 0 1-.8-3.4 8 8 0 0 1 8.1-8 8 8 0 0 1 8.4 6.8z"/>
@@ -326,7 +326,7 @@
   
   <!-- Order lookup: shown only when someone asks about an order. -->
   <form data-preview-form class="assist-side" data-assist-track hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <input type="hidden" name="form" value="track">
+    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="track">
     <div class="field">
       <label for="assist-code">Order number</label>
       <input id="assist-code" name="code" type="text" placeholder="EC-XXXXXX" autocomplete="off" required>
@@ -341,7 +341,7 @@
 
   <!-- Handoff: shown when the assistant doesn't know, or someone asks for a person. -->
   <form data-preview-form class="assist-side" data-assist-handoff hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <input type="hidden" name="form" value="handoff">
+    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="handoff">
     <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
     <div class="field">
       <label for="assist-email">Your email</label>
@@ -357,7 +357,7 @@
   </div><!-- /assist-body -->
 
   <form data-preview-form class="assist-ask" data-assist-form action="preview.html" method="post">
-    <input type="hidden" name="csrf" value="18c58f33b6289fa5148253e7b43fb2bbbc46aaafcd4eca15d3f9f96418afafb3">    <label class="sr-only" for="assist-input">Your question</label>
+    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <label class="sr-only" for="assist-input">Your question</label>
     <input id="assist-input" name="message" type="text" autocomplete="off" maxlength="500"
            placeholder="Ask about delivery, returns or care…" data-assist-input>
     <button class="assist-send" type="submit" data-assist-send>

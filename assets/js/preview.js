@@ -23,7 +23,7 @@
     var swap = { shipping: 'delivery', ship: 'delivery', postage: 'delivery', post: 'delivery',
       colour: 'color', colours: 'color', colors: 'color', refund: 'return', refunds: 'return',
       returns: 'return', returning: 'return', washing: 'wash', clean: 'wash', cleaning: 'wash',
-      cost: 'price', costs: 'price', prices: 'price', pricing: 'price', cashmere: 'pashmina',
+      cost: 'price', costs: 'price', prices: 'price', pricing: 'price', pashmina: 'cashmere',
       material: 'composition', fabric: 'composition', orders: 'order', parcel: 'order', package: 'order' };
     return s.split(' ').map(function (w) { return swap[w] || w; }).join(' ');
   };
