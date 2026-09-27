@@ -33,7 +33,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -126,7 +126,7 @@
 <h2>Why we started</h2>
 <p>[TO CONFIRM: The founder’s own story in their words — why Everest Craftria exists.]</p>
 <h2>The company</h2>
-<p>Everest Craftria LTD is a private limited company registered in England and Wales, company number 16990152.</p>    <p class="small muted updated">Last updated 24 Sep 2026</p>
+<p>Everest Craftria LTD is a private limited company registered in England and Wales, company number 16990152.</p>    <p class="small muted updated">Last updated 27 Sep 2026</p>
   </div>
 </div>
 </main>
@@ -182,7 +182,7 @@
       <h2 id="promo-h">Take 10% off your first order</h2>
       <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
       <form data-preview-form method="post" action="preview.html" data-promo-form>
-        <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">        <input type="hidden" name="source" value="promo">
         <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
         <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
         <div class="field">
@@ -258,7 +258,7 @@
   
   <!-- Order lookup: shown only when someone asks about an order. -->
   <form data-preview-form class="assist-side" data-assist-track hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="track">
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <input type="hidden" name="form" value="track">
     <div class="field">
       <label for="assist-code">Order number</label>
       <input id="assist-code" name="code" type="text" placeholder="EC-XXXXXX" autocomplete="off" required>
@@ -273,7 +273,7 @@
 
   <!-- Handoff: shown when the assistant doesn't know, or someone asks for a person. -->
   <form data-preview-form class="assist-side" data-assist-handoff hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="handoff">
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <input type="hidden" name="form" value="handoff">
     <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
     <div class="field">
       <label for="assist-email">Your email</label>
@@ -289,7 +289,7 @@
   </div><!-- /assist-body -->
 
   <form data-preview-form class="assist-ask" data-assist-form action="preview.html" method="post">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <label class="sr-only" for="assist-input">Your question</label>
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <label class="sr-only" for="assist-input">Your question</label>
     <input id="assist-input" name="message" type="text" autocomplete="off" maxlength="500"
            placeholder="Ask about delivery, returns or care…" data-assist-input>
     <button class="assist-send" type="submit" data-assist-send>

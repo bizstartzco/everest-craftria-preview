@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Returns &amp; Refunds | Everest Craftria</title>
-<meta name="description" content="How to cancel an order or return a piece, and when you’ll be refunded.">
+<meta name="description" content="How to cancel or return an Everest Craftria order: your 14-day right to cancel, how to send a piece back, and when your refund arrives.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="returns.html">
 <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Everest Craftria">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Returns &amp; Refunds | Everest Craftria">
-<meta property="og:description" content="How to cancel an order or return a piece, and when you’ll be refunded.">
+<meta property="og:description" content="How to cancel or return an Everest Craftria order: your 14-day right to cancel, how to send a piece back, and when your refund arrives.">
 <meta property="og:url" content="https://everestcraftria.com/returns">
 <meta property="og:image" content="assets/brand/og-image.png">
 <meta property="og:locale" content="en_GB">
@@ -33,7 +33,7 @@
   <div class="wrap">
     <p class="announce-msg">Free UK delivery on orders over £150.00</p>
     <form data-preview-form method="post" action="preview.html" data-autosubmit>
-      <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">      <label class="sr-only" for="cur">Display currency</label>
+      <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">      <label class="sr-only" for="cur">Display currency</label>
       <select id="cur" name="currency">
                 <option value="GBP" selected>GBP £</option>
                 <option value="USD">USD $</option>
@@ -130,7 +130,7 @@
 <h2>Made-to-order and personalised pieces</h2>
 <p>[TO CONFIRM: If you offer pieces made or personalised to a customer’s specification, the 14-day cancellation right may not apply to them — take advice and describe the rule here. Standard made-to-order stock items are normally still returnable.]</p>
 <h2>Natural variation</h2>
-<p>Handmade pieces vary slightly in colour, size and texture. This is part of how they are made and is not a fault.</p>    <p class="small muted updated">Last updated 24 Sep 2026</p>
+<p>Handmade pieces vary slightly in colour, size and texture. This is part of how they are made and is not a fault.</p>    <p class="small muted updated">Last updated 27 Sep 2026</p>
   </div>
 </div>
 </main>
@@ -186,7 +186,7 @@
       <h2 id="promo-h">Take 10% off your first order</h2>
       <p id="promo-b" class="muted">Join our letters for new pieces, care notes and occasional offers — and we’ll send a code for your first order.</p>
       <form data-preview-form method="post" action="preview.html" data-promo-form>
-        <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">        <input type="hidden" name="source" value="promo">
+        <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">        <input type="hidden" name="source" value="promo">
         <input type="hidden" name="consent_text" value="Email me new pieces, offers and care notes. I can unsubscribe at any time.">
         <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
         <div class="field">
@@ -262,7 +262,7 @@
   
   <!-- Order lookup: shown only when someone asks about an order. -->
   <form data-preview-form class="assist-side" data-assist-track hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="track">
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <input type="hidden" name="form" value="track">
     <div class="field">
       <label for="assist-code">Order number</label>
       <input id="assist-code" name="code" type="text" placeholder="EC-XXXXXX" autocomplete="off" required>
@@ -277,7 +277,7 @@
 
   <!-- Handoff: shown when the assistant doesn't know, or someone asks for a person. -->
   <form data-preview-form class="assist-side" data-assist-handoff hidden method="post" action="preview.html">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <input type="hidden" name="form" value="handoff">
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <input type="hidden" name="form" value="handoff">
     <span class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></span>
     <div class="field">
       <label for="assist-email">Your email</label>
@@ -293,7 +293,7 @@
   </div><!-- /assist-body -->
 
   <form data-preview-form class="assist-ask" data-assist-form action="preview.html" method="post">
-    <input type="hidden" name="csrf" value="a3eebe0d860b9809176778e307b9f562f3cbb3dc7a1d0df2846908b5fcbdb522">    <label class="sr-only" for="assist-input">Your question</label>
+    <input type="hidden" name="csrf" value="753ea2923f3d0e9b5075d5d565eccc9da90095df337233a70777b6ebe73cf21f">    <label class="sr-only" for="assist-input">Your question</label>
     <input id="assist-input" name="message" type="text" autocomplete="off" maxlength="500"
            placeholder="Ask about delivery, returns or care…" data-assist-input>
     <button class="assist-send" type="submit" data-assist-send>
